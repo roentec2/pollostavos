@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollos Tavo's | Pollos y Carnes Asadas desde 2007</title>
+    <meta name="description" content="El mejor pollo asado del town. Desde 2007, Pollos Tavo's te ofrece pollos y carnes asadas ricas y sabrosas. Pide por WhatsApp.">
+    <meta name="keywords" content="pollo asado, pollos tavos, carnes asadas, pedidos whatsapp, restaurant">
+    <meta property="og:title" content="Pollos Tavo's | El Mejor Pollo Asado del Town">
+    <meta property="og:description" content="Desde 2007 preparando pollos y carnes asadas ricas y sabrosas. ¡Pide ahora por WhatsApp!">
+    <meta property="og:type" content="restaurant">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Fredoka', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C' },
+                        gold: { 400: '#FBBF24', 500: '#F59E0B' },
+                        wa: { 500: '#25D366', 600: '#128C7E' },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #B22222; color: #FAFAF9; overflow-x: hidden; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0C0A09; }
+        ::-webkit-scrollbar-thumb { background: #44403C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #57534E; }
+
+        /* Animations */
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+        @keyframes steam { 0% { opacity: 0; transform: translateY(0) scaleX(1); } 50% { opacity: 0.4; } 100% { opacity: 0; transform: translateY(-80px) scaleX(1.5); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .anim-float { animation: float 5s ease-in-out infinite; }
+        .anim-float-delay { animation: float 5s ease-in-out 1.5s infinite; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        /* Glass */
+        .glass { background: rgba(12, 10, 9, 0.75); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(28, 25, 23, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.05); }
+
+        /* Cards */
+        .card { background: #1C1917; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card:hover { transform: translateY(-6px); border-color: rgba(249,115,22,0.2); box-shadow: 0 25px 60px -15px rgba(249,115,22,0.12); }
+
+        .card-featured { background: linear-gradient(145deg, #1C1917, #292524); border: 1px solid rgba(249,115,22,0.25); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
+        .card-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, #F97316, #FBBF24); }
+        .card-featured:hover { transform: translateY(-8px); border-color: rgba(249,115,22,0.4); box-shadow: 0 30px 70px -15px rgba(249,115,22,0.2); }
+
+        /* Buttons */
+        .btn-primary { background: linear-gradient(135deg, #EA580C, #F97316); color: white; padding: 0.875rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; box-shadow: 0 8px 30px -8px rgba(234,88,12,0.5); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px -8px rgba(234,88,12,0.6); background: linear-gradient(135deg, #C2410C, #EA580C); }
+        .btn-primary:active { transform: translateY(0); }
+
+        .btn-secondary { background: transparent; color: #FAFAF9; padding: 0.875rem 2rem; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .btn-secondary:hover { border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.08); color: #FB923C; }
+
+        .btn-wa { background: linear-gradient(135deg, #128C7E, #25D366); color: white; padding: 1rem 2.5rem; border-radius: 100px; font-weight: 700; font-size: 1.1rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; box-shadow: 0 8px 30px -8px rgba(37,211,102,0.4); font-family: 'Fredoka', sans-serif; }
+        .btn-wa:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 45px -8px rgba(37,211,102,0.5); }
+
+        .btn-wa-sm { background: linear-gradient(135deg, #128C7E, #25D366); color: white; padding: 0.625rem 1.25rem; border-radius: 100px; font-weight: 600; font-size: 0.8rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
+        .btn-wa-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(37,211,102,0.4); }
+
+        /* Clip shapes */
+        .clip-curved { border-radius: 2rem 2rem 0 2rem; }
+        .clip-curved-alt { border-radius: 0 2rem 2rem 2rem; }
+        .clip-organic { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+
+        /* Gradient text */
+        .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .text-gradient-red { background: linear-gradient(135deg, #EF4444, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* Background pattern */
+        .bg-dots { background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 32px 32px; }
+
+        /* Steam effect */
+        .steam-container { position: absolute; top: -20px; left: 50%; width: 100px; height: 100px; pointer-events: none; }
+        .steam { position: absolute; bottom: 0; width: 8px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; filter: blur(6px); animation: steam 2.5s ease-out infinite; }
+        .steam:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .steam:nth-child(2) { left: 50%; animation-delay: 0.8s; }
+        .steam:nth-child(3) { left: 75%; animation-delay: 1.6s; }
+        
+        * ===== MENU CREATIVE CARDS ===== */
+        .menu-card {
+            background: linear-gradient(160deg, #171412, #1C1917);
+            border: 1px solid rgba(255,255,255,.05);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all .45s cubic-bezier(.16,1,.3,1);
+            cursor: pointer;
+        }
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #EF4444, #F97316, #FBBF24);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s cubic-bezier(.16,1,.3,1);
+        }
+        .menu-card:hover::before { transform: scaleX(1); }
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(234,88,12,.3);
+            box-shadow: 0 20px 50px -12px rgba(234,88,12,.2), 0 0 0 1px rgba(234,88,12,.1);
+        }
+        .menu-card:active { transform: translateY(-4px) scale(1.01); }
+
+        .menu-card .icon-wrap {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.75rem;
+            transition: all .4s ease;
+            position: relative;
+        }
+        .menu-card:hover .icon-wrap { transform: scale(1.1) rotate(-3deg); }
+
+        .menu-card .price-tag {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #EA580C, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all .3s ease;
+        }
+        .menu-card:hover .price-tag { transform: scale(1.05); display: inline-block; }
+
+        .menu-card .order-btn {
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all .35s cubic-bezier(.16,1,.3,1);
+        }
+        .menu-card:hover .order-btn { opacity: 1; transform: translateY(0); }
+
+        .menu-card.best-seller {
+            border-color: rgba(234,88,12,.2);
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+        .menu-card.best-seller::after {
+            content: '⭐ Más Vendido';
+            position: absolute;
+            top: 12px; right: 12px;
+            background: linear-gradient(135deg, #EA580C, #F97316);
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            letter-spacing: 0.03em;
+        }
+
+        /* Logo watermark */
+        .logo-watermark {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 280px;
+            opacity: 0.06;
+            transform: rotate(-8deg);
+            pointer-events: none;
+            z-index: 0;
+            animation: logoPulse 6s ease-in-out infinite;
+            filter: grayscale(20%);
+        }
+        @media(min-width: 768px) {
+            .logo-watermark { width: 360px; bottom: -40px; right: -40px; }
+        }
+        @media(min-width: 1024px) {
+            .logo-watermark { width: 440px; bottom: -60px; right: -60px; }
+        }
+
+        /* Menu section bg */
+        .menu-section-bg {
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 80%, rgba(239,68,68,.06), transparent),
+                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(249,115,22,.05), transparent),
+                radial-gradient(ellipse 50% 40% at 50% 50%, rgba(251,191,36,.03), transparent),
+                #0C0A09;
+        }
+
+        /* ===== END MENU CREATIVE ===== */
+
+        /* Marquee */
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        /* WhatsApp Float */
+        .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; }
+        .wa-float-btn { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #128C7E, #25D366); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 25px rgba(37,211,102,0.45); position: relative; border: none; }
+        .wa-float-btn:hover { transform: scale(1.1); box-shadow: 0 8px 35px rgba(37,211,102,0.55); }
+        .wa-float-btn::before { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: rgba(37,211,102,0.3); animation: pulse-ring 2s ease-out infinite; }
+        .wa-float-tooltip { position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%); background: #1C1917; color: #FAFAF9; padding: 0.5rem 1rem; border-radius: 0.75rem; font-size: 0.8rem; font-weight: 500; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.08); }
+        .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+        /* Mobile menu */
+        .mobile-menu { position: fixed; inset: 0; z-index: 100; background: rgba(12,10,9,0.97); backdrop-filter: blur(24px); transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+        .mobile-menu.open { transform: translateX(0); }
+        .mobile-menu a { font-family: 'Fredoka', sans-serif; font-size: 1.75rem; font-weight: 600; color: #D6D3D1; text-decoration: none; transition: color 0.3s; }
+        .mobile-menu a:hover { color: #F97316; }
+
+        /* Package badge */
+        .popular-badge { position: absolute; top: -1px; right: 1.5rem; background: linear-gradient(135deg, #EA580C, #F97316); color: white; padding: 0.35rem 1rem; border-radius: 0 0 0.75rem 0.75rem; font-family: 'Fredoka', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+        /* Nav active */
+        .nav-link { position: relative; color: #A8A29E; transition: color 0.3s; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-link:hover, .nav-link.active { color: #FAFAF9; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #F97316; border-radius: 1px; transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* Flavor card gradient bg */
+        .flavor-bg-1 { background: linear-gradient(145deg, #7C2D12, #9A3412); }
+        .flavor-bg-2 { background: linear-gradient(145deg, #14532D, #166534); }
+        .flavor-bg-3 { background: linear-gradient(145deg, #78350F, #92400E); }
+        .flavor-bg-4 { background: linear-gradient(145deg, #713F12, #854D0E); }
+
+        /* Divider */
+        .section-divider { width: 60px; height: 3px; background: linear-gradient(to right, #F97316, #FBBF24); border-radius: 2px; margin: 0 auto; }
+
+        /* Image container fallback */
+        .img-container { background: #292524; overflow: hidden; position: relative; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-container:hover img { transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .btn-primary, .btn-secondary { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
+            .btn-wa { padding: 0.875rem 2rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body class="bg-dots">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-2.5 group">
+                <img src="img/logo.jpg" alt="Pollos Tavos - Logo" class="h-20 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+                    <!--<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-brand-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-brand-600/30 group-hover:shadow-brand-600/50 transition-shadow">T</div>-->
+                    <div class="hidden sm:block">
+                        <span class="font-display font-bold text-lg text-stone-50 leading-none block">Pollos Tavo's</span>
+                        <span class="text-[10px] text-stone-500 font-medium tracking-wider uppercase">Est. 2001</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#inicio" class="nav-link active">Inicio</a>
+                    <a href="#menu" class="nav-link">Menú</a>
+                    <!--<a href="#sabores" class="nav-link">Sabores</a>-->
+                    <a href="#paquetes" class="nav-link">Paquetes</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+
+                <!-- CTA + Hamburger -->
+                <div class="flex items-center gap-3">
+                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero hacer un pedido'); return false;" class="btn-wa-sm hidden sm:inline-flex">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
+                        Pedir Ahora
+                    </a>
+                    <button id="menuToggle" class="md:hidden w-10 h-10 rounded-xl bg-stone-800 border border-stone-700 flex flex-col items-center justify-center gap-1.5 cursor-pointer" aria-label="Menú">
+                        <span class="block w-5 h-0.5 bg-stone-300 rounded transition-all" id="bar1"></span>
+                        <span class="block w-5 h-0.5 bg-stone-300 rounded transition-all" id="bar2"></span>
+                        <span class="block w-3.5 h-0.5 bg-stone-300 rounded transition-all" id="bar3"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button onclick="closeMobileMenu()" class="absolute top-5 right-5 w-10 h-10 rounded-xl bg-stone-800 border border-stone-700 flex items-center justify-center cursor-pointer" aria-label="Cerrar">
+            <span class="iconify text-stone-300" data-icon="mdi:close" data-width="22"></span>
+        </button>
+        <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+        <!--<a href="#sabores" onclick="closeMobileMenu()">Sabores</a>-->
+        <a href="#menu" onclick="closeMobileMenu()">Menú</a>
+        <a href="#paquetes" onclick="closeMobileMenu()">Paquetes</a>
+        <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero hacer un pedido'); closeMobileMenu(); return false;" class="btn-wa mt-4">
+            <span class="iconify" data-icon="mdi:whatsapp" data-width="24"></span>
+            Pedir por WhatsApp
+        </a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="img/hero.jpg" alt="Pollo asado Pollos Tavo's" class="w-full h-full object-cover object-center" loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0C0A09] via-[#0C0A09]/85 to-[#0C0A09]/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0C0A09] via-transparent to-[#0C0A09]/30"></div>
+        </div>
+
+        <!-- Organic blobs -->
+        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-brand-500/8 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-gold-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
+            <div class="max-w-2xl">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light mb-8" style="animation: fadeInUp 0.8s ease forwards;">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                    <span class="text-xs font-medium text-stone-400 tracking-wide uppercase">Est. 2001 · Pollos y Carnes Asadas</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6" style="animation: fadeInUp 0.8s 0.15s ease both;">
+                    El Mejor Pollo Asado
+                    <span class="text-gradient block mt-1">De la Zona!</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-stone-400 text-base sm:text-lg leading-relaxed mb-10 max-w-lg" style="animation: fadeInUp 0.8s 0.3s ease both;">
+                    Ya estamos listos para consentirte con el mejor sabor que te hace volver desde 2001. 
+                    <span class="text-stone-300 font-medium">Pollos Tavo's ¡Ricos y Sabrosos!</span>
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-wrap gap-4" style="animation: fadeInUp 0.8s 0.45s ease both;">
+                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola Pollos Tavo\'s! 🍗 Quiero hacer un pedido'); return false;" class="btn-wa">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="24"></span>
+                        Pedir por WhatsApp
+                    </a>
+                    <a href="#paquetes" class="btn-secondary">
+                        <span class="iconify" data-icon="mdi:silverware-fork-knife" data-width="18"></span>
+                        Ver Paquetes
+                    </a>
+                </div>
+
+                <!-- Trust row -->
+                <div class="flex flex-wrap items-center gap-6 mt-12 pt-8 border-t border-stone-800/60" style="animation: fadeInUp 0.8s 0.6s ease both;">
+                    <div class="flex items-center gap-2">
+                        <span class="iconify text-brand-500" data-icon="mdi:clock-outline" data-width="18"></span>
+                        <span class="text-sm text-white-500">Lun–Dom 12:00PM – 6:00PM</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="iconify text-brand-500" data-icon="mdi:motorbike" data-width="18"></span>
+                        <span class="text-sm text-white-500">Servicio a Domicilio</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="iconify text-brand-500" data-icon="mdi:star" data-width="18"></span>
+                        <span class="text-sm text-white-500">Aceptamos Tranferencias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce" style="animation: bounce 2s infinite, fadeInUp 0.8s 0.8s ease both;">
+            <span class="text-[10px] text-stone-600 uppercase tracking-widest">Scroll</span>
+            <span class="iconify text-stone-600" data-icon="mdi:chevron-down" data-width="20"></span>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
+        <div class="marquee-track">
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap">
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🔥 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🥤 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
+                <span>🎉 ACEPTAMOS TRANSFERECIAS</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🔥 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 SALSAS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🥤 TORTILLAS</span><span class="text-brand-600">✦</span>
+                <span>🎉 ACEPTAMOS TRANSFERECIAS</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+            </div>
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap" aria-hidden="true">
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🔥 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🥤 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
+                <span>🎉 DESDE 2001</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🔥 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🥤 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
+                <span>🎉 DESDE 2001</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NOSOTROS ===== -->
+    <section class="relative py-24 sm:py-32 overflow-hidden">
+        <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image -->
+                <div class="reveal-left">
+                    <div class="relative">
+                        <div class="img-container clip-curved aspect-[4/3] shadow-2xl shadow-brand-600/10">
+                            <img src="img/logo.jpg" alt="Pollos Tavo's logo y señal" class="object-contain p-8 bg-stone-900" loading="lazy">
+                        </div>
+                        <!-- Floating badge -->
+                        <div class="absolute -bottom-4 -right-4 sm:bottom-4 sm:right-4 glass rounded-2xl p-4 anim-float shadow-xl">
+                            <div class="text-center">
+                                <span class="font-display font-bold text-3xl text-gradient block">17+</span>
+                                <span class="text-[11px] text-stone-500 font-medium uppercase tracking-wider">Años</span>
+                            </div>
+                        </div>
+                        <!-- Decorative dot -->
+                        <div class="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-brand-500/30 border border-brand-500/40"></div>
+                    </div>
+                        
+                        <div class="flex items-center gap-3">
+                        <a href="https://www.facebook.com/profile.php?id=61553563559793" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-blue-500 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all" aria-label="Facebook" target="_blank">
+                            <span class="iconify" data-icon="mdi:facebook" data-width="20"></span>
+                        </a>
+                        <a href="https://www.instagram.com/pollostavosoficial/" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all" aria-label="Instagram" target="_blank">
+                            <span class="iconify" data-icon="mdi:instagram" data-width="20"></span>
+                        </a>
+                        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero realizar un Pedido\'s'); return false;" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-white-400 hover:text-wa-500 hover:border-wa-500/30 hover:bg-wa-500/10 transition-all" aria-label="WhatsApp">
+                            <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                        </a>
+                        </div>
+                    
+                </div>
+
+                <!-- Content -->
+                <div class="reveal-right">
+                    <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Nuestra Historia</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+                        Sabor, Calidad y<br><span class="text-gradient">Buen Precio</span>
+                    </h2>
+                    <div class="section-divider mb-8" style="margin:0; margin-bottom: 2rem;"></div>
+                    <p class="text-white-400 leading-relaxed mb-6">
+                        Desde 2001, en <strong class="text-white-400">Pollos Tavo's</strong> hemos perfeccionado el arte del pollo asado. Cada pieza se prepara con nuestra receta familiar, cocinada lentamente sobre fuego de carbón para lograr esa textura jugosa por dentro y delicioso por fuera.
+                    </p>
+                    <p class="text-white-400 leading-relaxed mb-10">
+                        Nuestro compromiso es simple: ingredientes frescos, sazón auténtico y el calor de una comida hecha con amor. Por eso somos <strong class="text-white-400">el mejor pollo de la Zona!.</strong>.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center p-4 rounded-2xl bg-stone-900/60 border border-stone-800/50">
+                            <span class="font-display font-bold text-2xl sm:text-3xl text-gradient block">17+</span>
+                            <span class="text-xs text-stone-500 font-medium mt-1 block">Años de tradición</span>
+                        </div>
+                        <div class="text-center p-4 rounded-2xl bg-stone-900/60 border border-stone-800/50">
+                            <span class="font-display font-bold text-2xl sm:text-3xl text-gradient block">Nuestro</span>
+                            <span class="text-xs text-stone-500 font-medium mt-1 block">Sabor Especial</span>
+                        </div>
+                        <div class="text-center p-4 rounded-2xl bg-stone-900/60 border border-stone-800/50">
+                            <span class="font-display font-bold text-2xl sm:text-3xl text-gradient block">100%</span>
+                            <span class="text-xs text-stone-500 font-medium mt-1 block">Fresco diario</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- ===== MENU ===== -->
+    <section id="menu" class="relative menu-section-bg py-24 sm:py-32 overflow-hidden">
+        <!-- Subtle background glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-red-900/8 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-6 reveal">
+                <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Menú</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+                    Elige tu <span class="text-gradient">Favorito!</span>
+                </h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-stone-400">Completa también tu pedido con nuestros deliciosos Complementos.</p>
+            </div>
+
+            <!-- Sub-label: Pollos -->
+            <div class="flex items-center gap-3 mb-6 mt-14 reveal">
+                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
+                <span class="font-display font-semibold text-sm text-stone-500 uppercase tracking-widest flex items-center gap-2">
+                    <span class="iconify text-brand-500" data-icon="mdi:food-drumstick" data-width="18"></span>
+                    Pollos Asados
+                </span>
+                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
+            </div>
+
+            <!-- Pollo Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 mb-4">
+
+                <!-- 1/2 Pollo -->
+                <div class="menu-card reveal" style="transition-delay:0ms" onclick="pedirWhatsApp('Quiero pedir 1/2 Pollo ($100)')">
+                    <div class="icon-wrap bg-red-950/50 mb-4">
+                        <span>🍗</span>
+                    </div>
+                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1/2 Pollo</h3>
+                    <p class="text-[11px] text-stone-600 mb-3">Medio pollo asado</p>
+                    <div class="flex items-end justify-between">
+                        <span class="price-tag text-2xl sm:text-3xl">$100</span>
+                        <div class="order-btn">
+                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
+                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1 Pollo — BEST SELLER -->
+                <div class="menu-card best-seller reveal" style="transition-delay:80ms" onclick="pedirWhatsApp('Quiero pedir 1 Pollo ($185)')">
+                    <div class="icon-wrap bg-red-950/50 mb-4">
+                        <span>🍗</span>
+                    </div>
+                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 Pollo</h3>
+                    <p class="text-[11px] text-stone-600 mb-3">Pollo entero asado</p>
+                    <div class="flex items-end justify-between">
+                        <span class="price-tag text-2xl sm:text-3xl">$185</span>
+                        <div class="order-btn">
+                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
+                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1½ Pollo -->
+                <div class="menu-card reveal" style="transition-delay:160ms" onclick="pedirWhatsApp('Quiero pedir 1½ Pollo ($250)')">
+                    <div class="icon-wrap bg-red-950/50 mb-4">
+                        <span>🍗</span>
+                    </div>
+                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1½ Pollo</h3>
+                    <p class="text-[11px] text-stone-600 mb-3">Pollo y medio asado</p>
+                    <div class="flex items-end justify-between">
+                        <span class="price-tag text-2xl sm:text-3xl">$250</span>
+                        <div class="order-btn">
+                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
+                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 Pollos -->
+                <div class="menu-card reveal" style="transition-delay:240ms" onclick="pedirWhatsApp('Quiero pedir 2 Pollos ($340)')">
+                    <div class="icon-wrap bg-red-950/50 mb-4">
+                        <span>🍗</span>
+                    </div>
+                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">2 Pollos</h3>
+                    <p class="text-[11px] text-stone-600 mb-3">Dos pollos enteros</p>
+                    <div class="flex items-end justify-between">
+                        <span class="price-tag text-2xl sm:text-3xl">$340</span>
+                        <div class="order-btn">
+                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
+                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-label: Carnes -->
+            <div class="flex items-center gap-3 mb-6 mt-12 reveal">
+                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
+                <span class="font-display font-semibold text-sm text-stone-500 uppercase tracking-widest flex items-center gap-2">
+                    <span class="iconify text-brand-500" data-icon="mdi:steak" data-width="18"></span>
+                    Carnes Asadas
+                </span>
+                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
+            </div>
+
+            <!-- Carne Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+
+                <!-- 1/2 Carne -->
+                <div class="menu-card reveal" style="transition-delay:0ms" onclick="pedirWhatsApp('Quiero pedir 1/2 Carne ($165)')">
+                    <div class="icon-wrap bg-orange-950/50 mb-4">
+                        <span>🥩</span>
+                    </div>
+                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1/2 Carne</h3>
+                    <p class="text-[11px] text-stone-600 mb-3">Medio kilo de carne</p>
+                    <div class="flex items-end justify-between">
+                        <span class="price-tag text-2xl sm:text-3xl">$165</span>
+                        <div class="order-btn">
+                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
+                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1 kg Carne -->
+                <div class="menu-card reveal" style="transition-delay:80ms" onclick="pedirWhatsApp('Quiero pedir 1 kg Carne ($310)')">
+                    <div class="icon-wrap bg-orange-950/50 mb-4">
+                        <span>🥩</span>
+                    </div>
+                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 kg Carne</h3>
+                    <p class="text-[11px] text-stone-600 mb-3">Un kilo de carne asada</p>
+                    <div class="flex items-end justify-between">
+                        <span class="price-tag text-2xl sm:text-3xl">$310</span>
+                        <div class="order-btn">
+                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
+                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip bar -->
+            <div class="mt-12 p-5 rounded-2xl glass-light reveal">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-brand-600/15 flex items-center justify-center flex-shrink-0">
+                        <span class="iconify text-brand-500" data-icon="mdi:lightbulb-on-outline" data-width="22"></span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm text-stone-300 font-medium mb-0.5">¿No sabes qué elegir?</p>
+                        <p class="text-sm text-stone-500">Prueba nuestros <a href="#paquetes" class="text-brand-400 hover:text-brand-300 font-medium underline underline-offset-2 transition-colors">Paquetes</a> que incluyen pollo, carne, complementos y bebidas a precio especial.</p>
+                    </div>
+                    <a href="#paquetes" class="btn-primary text-sm py-2.5 px-5 flex-shrink-0">
+                        Ver Paquetes
+                        <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== FIN MENU ===== -->
+
+    <!-- ===== PAQUETES ===== -->
+    <section id="paquetes" class="relative py-24 sm:py-32 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/4 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Nuestros Paquetes</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+                    El Paquete Perfecto<br><span class="text-gradient">Para Cada Ocación</span>
+                </h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-xl text-white-400">Contamos con Servicio a Domicilio $30 y aceptamos Transferencias. ¡Elige el Tuyo!</p>
+            </div>
+
+            <!-- Packages Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- PAQ INDIVIDUAL -->
+                <div class="card p-7 flex flex-col reveal" style="transition-delay: 0ms;">
+                    <div class="mb-5">
+                        <span class="inline-block px-3 py-1 rounded-full bg-stone-800 text-stone-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Individual</span>
+                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Individual</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="font-display font-bold text-4xl text-gradient">$130</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            ½ Pollo
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            3 Salchichas
+                        </li>
+
+                        <!-- <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            Salsas
+                        </li>-->
+                        
+                        <li class="flex items-start gap-2.5 text-sm text-stone-500">
+                            <span class="iconify text-stone-600 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
+                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas 
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete INDIVIDUAL ($130)'); return false;" class="btn-wa-sm w-full justify-center">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
+                        Pedir Ahora
+                    </a>
+                </div>
+
+                <!-- PAQ ALCANCE -->
+                <div class="card-featured p-7 flex flex-col reveal" style="transition-delay: 100ms;">
+                    <div class="popular-badge">Popular</div>
+                    <div class="mb-5">
+                        <span class="inline-block px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Para compartir</span>
+                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Alcance</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="font-display font-bold text-4xl text-gradient">$245</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            1 Pollo
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            3 Salchichas
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            1 Salchicha Preparada
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            Totopos
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-stone-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
+                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete ALCANCE ($245)'); return false;" class="btn-wa w-full justify-center text-sm py-2.5">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="18"></span>
+                        Pedir Ahora
+                    </a>
+                </div>
+
+                <!-- PAQ COMPARTAS -->
+                <div class="card p-7 flex flex-col reveal" style="transition-delay: 200ms;">
+                    <div class="mb-5">
+                        <span class="inline-block px-3 py-1 rounded-full bg-stone-800 text-stone-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Familiar</span>
+                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Compartas</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="font-display font-bold text-4xl text-gradient">$340</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            1 Pollo
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            1/2 KG Carne Asada
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            2 Salchichas
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-500">
+                            <span class="iconify text-stone-600 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
+                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete COMPARTAS ($340)'); return false;" class="btn-wa-sm w-full justify-center">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
+                        Pedir Ahora
+                    </a>
+                </div>
+
+                <!-- PAQ LLENES -->
+                <div class="card p-7 flex flex-col reveal" style="transition-delay: 300ms;">
+                    <div class="mb-5">
+                        <span class="inline-block px-3 py-1 rounded-full bg-gold-500/15 text-gold-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Mega</span>
+                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Llenes</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="font-display font-bold text-4xl text-gradient">$480</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            1 Pollo
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            1kg Carne Asada
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            3 Salchichas
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            2 Salchichas preparadas
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
+                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
+                            Totopos
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-stone-500">
+                            <span class="iconify text-stone-600 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
+                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete LLENES ($535)'); return false;" class="btn-wa-sm w-full justify-center">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
+                        Pedir Ahora
+                    </a>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <p class="text-center text-white-500 text-xl mt-8 reveal">
+                <span class="iconify inline-block align-middle mr-1" data-icon="mdi:information-outline" data-width="16"></span>
+                Todos los paquetes incluyen Tortillas,Cebolla Asada,Chiles toreados,Limónes y Salsas.
+            </p>
+        </div>
+    </section>
+      
+        <!-- ===== MARQUEE ===== -->
+    <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
+        <div class="marquee-track">
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-2xl whitespace-nowrap">
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+            </div>
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-2xl whitespace-nowrap" aria-hidden="true">
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="relative py-24 sm:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Galería</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+                    Se Ve Rico,<br><span class="text-gradient">Sabe Mejor</span>
+                </h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="reveal-left">
+                    <div class="img-container clip-curved aspect-[4/3] shadow-2xl shadow-brand-600/8 relative group">
+                        <img src="img/pollotavos.png" alt="Combo completo de Pollos Tavo's con pollo, arroz, papas y acompañamientos" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
+                            <div>
+                                <span class="font-display font-bold text-lg text-white">Combo Pollo</span>
+                                <p class="text-sm text-stone-300">Pollo, totopos, salchicha, chile toreado y mas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="img-container clip-curved-alt aspect-[4/3] shadow-2xl shadow-brand-600/8 relative group">
+                        <img src="img/galeria.jpg" alt="Plato individual de Pollos Tavo's con todos los acompañamientos" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
+                            <div>
+                                <span class="font-display font-bold text-lg text-white">Combo Carne</span>
+                                <p class="text-sm text-stone-300">Servido directamente de la parrilla</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO / FOOTER ===== -->
+    <footer id="contacto" class="relative border-t border-stone-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+                <!-- Brand -->
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <a href="#inicio" class="flex items-center gap-2.5 mb-4">
+                    <img src="img/logo.jpg" alt="Pollos Tavos - Logo" class="h-20 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+                        <div>
+                            <span class="font-display font-bold text-lg text-white-50 leading-none block">Pollos Tavo's</span>
+                            <span class="text-[10px] text-white-500 font-medium tracking-wider uppercase">Est. 2001</span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-white-500 leading-relaxed mb-6 max-w-xs">
+                        Pollos y carnes asadas, ricos y sabrosos.
+                    </p>
+                    <!-- Social -->
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.facebook.com/profile.php?id=61553563559793" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-blue-500 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all" aria-label="Facebook" target="_blank">
+                            <span class="iconify" data-icon="mdi:facebook" data-width="20"></span>
+                        </a>
+                        <a href="https://www.instagram.com/pollostavosoficial/" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all" aria-label="Instagram" target="_blank">
+                            <span class="iconify" data-icon="mdi:instagram" data-width="20"></span>
+                        </a>
+                        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero realizar un Pedido\'s'); return false;" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-white-400 hover:text-wa-500 hover:border-wa-500/30 hover:bg-wa-500/10 transition-all" aria-label="WhatsApp">
+                            <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Horario -->
+                <div>
+                    <h4 class="font-display font-semibold text-white-200 mb-4 text-sm uppercase tracking-wider">Horario</h4>
+                    <ul class="space-y-3 text-sm text-white-500">
+                        <li class="flex justify-between"><span>Lunes - Viernes</span><span class="text-white-300">12PM - 6PM</span></li>
+                        <li class="flex justify-between"><span>Sábado</span><span class="text-white-300">12PM - 6PM</span></li>
+                        <li class="flex justify-between"><span>Domingo</span><span class="text-white-300">12PM - 6PM</span></li>
+                    </ul>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-display font-semibold text-white-200 mb-4 text-sm uppercase tracking-wider">Navegación</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#inicio" class="text-white-500 hover:text-brand-500 transition-colors">Inicio</a></li>
+                        <li><a href="#menu" class="text-white-500 hover:text-brand-500 transition-colors">Menú</a></li>
+                        <!--<li><a href="#sabores" class="text-stone-500 hover:text-brand-500 transition-colors">Sabores</a></li>-->
+                        <li><a href="#paquetes" class="text-white-500 hover:text-brand-500 transition-colors">Paquetes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-display font-semibold text-white-200 mb-4 text-sm uppercase tracking-wider">Contacto</h4>
+                    <ul class="space-y-3 text-sm text-white-500">
+                        <li class="flex items-center gap-2">
+                            <span class="iconify text-brand-500 flex-shrink-0" data-icon="mdi:whatsapp" data-width="16"></span>
+                            <a href="#" onclick="pedirWhatsApp('Hola, quiero información'); return false;" class="hover:text-brand-500 transition-colors">WhatsApp</a>
+                        </li>
+                        <!--<li class="flex items-center gap-2">
+                            <span class="iconify text-brand-500 flex-shrink-0" data-icon="mdi:map-marker" data-width="16"></span>
+                            <span>Visítanos en nuestro local</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="iconify text-brand-500 flex-shrink-0" data-icon="mdi:motorbike" data-width="16"></span>
+                            <span>Delivery disponible</span>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="mt-16 pt-8 border-t border-stone-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-white-600">© 2026 Pollos Tavo's. Todos los derechos reservados. Est. 2001</p>
+                <p class="text-xs text-white-700">Diseñado con 🍗 y mucho sabor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FLOATING WHATSAPP ===== -->
+    <div class="wa-float">
+        <div class="wa-float-tooltip">¡Pide tu pollo aquí! 🍗</div>
+        <button onclick="pedirWhatsApp('¡Hola Pollos Tavo\'s! 🍗 Quiero hacer un pedido')" class="wa-float-btn" aria-label="Pedir por WhatsApp">
+            <span class="iconify text-white" data-icon="mdi:whatsapp" data-width="32"></span>
+        </button>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ========================================
+        // CONFIGURACIÓN - CAMBIA ESTE NÚMERO
+        // ========================================
+        const WHATSAPP_NUMBER = '0000000000'; // ← Cambia por el número real con código de país (ej: 18091234567)
+
+        function pedirWhatsApp(mensaje) {
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+
+        // ========================================
+        // NAVBAR SCROLL EFFECT
+        // ========================================
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                navbar.classList.add('glass');
+                navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+            } else {
+                navbar.classList.remove('glass');
+                navbar.style.borderBottom = 'none';
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                closeMobileMenu();
+            }
+        });
+
+        function closeMobileMenu() {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ========================================
+        // SCROLL REVEAL (Intersection Observer)
+        // ========================================
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Apply delay from style attribute if exists
+                    const delay = entry.target.style.transitionDelay || '0ms';
+                    entry.target.style.transitionDelay = delay;
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ========================================
+        // ACTIVE NAV LINK TRACKING
+        // ========================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-80px 0px -50% 0px'
+        });
+
+        sections.forEach(section => navObserver.observe(section));
+
+        // ========================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Pollos Tavo's",
+        "servesCuisine": ["Pollo asado", "Carnes asadas", "Comida latina"],
+        "foundingDate": "2007",
+        "description": "El mejor pollo asado del town. Pollos y carnes asadas ricas y sabrosas desde 2007.",
+        "priceRange": "$$",
+        "hasMenu": {
+            "@type": "Menu",
+            "hasMenuSection": [
+                {
+                    "@type": "MenuSection",
+                    "name": "Paquetes",
+                    "hasMenuItem": [
+                        { "@type": "MenuItem", "name": "Paq. Individual", "offers": { "@type": "Offer", "price": "100", "priceCurrency": "COP" } },
+                        { "@type": "MenuItem", "name": "Paq. Alcance", "offers": { "@type": "Offer", "price": "200", "priceCurrency": "COP" } },
+                        { "@type": "MenuItem", "name": "Paq. Compartas", "offers": { "@type": "Offer", "price": "290", "priceCurrency": "COP" } },
+                        { "@type": "MenuItem", "name": "Paq. Llenes", "offers": { "@type": "Offer", "price": "480", "priceCurrency": "COP" } }
+                    ]
+                }
+            ]
+        }
+    }
+    </script>
+</body>
+</html>
