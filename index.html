@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pollos Tavo's | Pollos y Carnes Asadas desde 2007</title>
+    <title>Pollos Tavo's | Pollos y Carnes Asadas desde 2001</title>
     <meta name="description" content="El mejor pollo asado de la Zona. Desde 2001, Pollos Tavo's te ofrece pollos y carnes asadas ricas y sabrosas. Pide por WhatsApp.">
     <meta name="keywords" content="pollo asado, pollos tavos, carnes asadas, pedidos whatsapp, restaurant">
     <meta property="og:title" content="Pollos Tavo's | El Mejor Pollo Asado de la Zona">
@@ -562,7 +562,7 @@
                         <span>🍗</span>
                     </div>
                     <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 Pollo</h3>
-                    <p class="text-[11px] text-stone-600 mb-3">Pollo entero asado</p>
+                    <p class="text-[11px] text-white-600 mb-3">Pollo entero asado</p>
                     <div class="flex items-end justify-between">
                         <span class="price-tag text-2xl sm:text-3xl">$185</span>
                         <div class="order-btn">
@@ -579,7 +579,7 @@
                         <span>🍗</span>
                     </div>
                     <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1½ Pollo</h3>
-                    <p class="text-[11px] text-stone-600 mb-3">Pollo y medio asado</p>
+                    <p class="text-[11px] text-white-600 mb-3">Pollo y medio asado</p>
                     <div class="flex items-end justify-between">
                         <span class="price-tag text-2xl sm:text-3xl">$250</span>
                         <div class="order-btn">
@@ -596,7 +596,7 @@
                         <span>🍗</span>
                     </div>
                     <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">2 Pollos</h3>
-                    <p class="text-[11px] text-stone-600 mb-3">Dos pollos enteros</p>
+                    <p class="text-[11px] text-white-600 mb-3">Dos pollos enteros</p>
                     <div class="flex items-end justify-between">
                         <span class="price-tag text-2xl sm:text-3xl">$340</span>
                         <div class="order-btn">
@@ -627,7 +627,7 @@
                         <span>🥩</span>
                     </div>
                     <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1/2 Carne</h3>
-                    <p class="text-[11px] text-stone-600 mb-3">Medio kilo de carne</p>
+                    <p class="text-[11px] text-white-600 mb-3">Medio kilo de carne</p>
                     <div class="flex items-end justify-between">
                         <span class="price-tag text-2xl sm:text-3xl">$165</span>
                         <div class="order-btn">
@@ -639,7 +639,7 @@
                 </div>
 
                 <!-- 1 kg Carne -->
-                <div class="menu-card reveal" style="transition-delay:80ms" onclick="pedirWhatsApp('Quiero pedir 1 kg Carne ($310)')">
+            <div class="menu-card reveal" style="transition-delay:80ms">
                     <div class="icon-wrap bg-orange-950/50 mb-4">
                         <span>🥩</span>
                     </div>
@@ -648,8 +648,11 @@
                     <div class="flex items-end justify-between">
                         <span class="price-tag text-2xl sm:text-3xl">$310</span>
                         <div class="order-btn">
-                            <span class="w-8 h-8 rounded-full bg-wa-600/20 flex items-center justify-center">
-                                <span class="iconify text-wa-500" data-icon="mdi:whatsapp" data-width="16"></span>
+                            <span class="flex items-center justify-center">
+                                <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir 1kg de Carne ($310)'); return false;" class="btn-wa-sm w-full justify-center">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
+                        Pedir Ahora
+                    </a>
                             </span>
                         </div>
                     </div>
@@ -1002,7 +1005,7 @@
         // ========================================
         // CONFIGURACIÓN - CAMBIA ESTE NÚMERO
         // ========================================
-        const WHATSAPP_NUMBER = '0000000000'; // ← Cambia por el número real con código de país (ej: 18091234567)
+        const WHATSAPP_NUMBER = '528112735442'; // ← Cambia por el número real con código de país (ej: 18091234567)
 
         function pedirWhatsApp(mensaje) {
             const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
