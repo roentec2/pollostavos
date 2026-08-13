@@ -1,1310 +1,489 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pollos Tavo's | Pollos y Carnes Asadas desde 2001</title>
-    <meta name="description" content="El mejor pollo asado de la Zona. Desde 2001, Pollos Tavo's te ofrece pollos y carnes asadas ricas y sabrosas. Pide por WhatsApp.">
-    <meta name="keywords" content="pollo asado, pollos tavos, carnes asadas, pedidos whatsapp, restaurant">
-    <meta property="og:title" content="Pollos Tavo's | El Mejor Pollo Asado de la Zona">
-    <meta property="og:description" content="Desde 2001 preparando pollos y carnes asadas ricas y sabrosas. ¡Pide ahora por WhatsApp!">
-    <meta property="og:type" content="restaurant">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <!-- ============ SEO ============ -->
+  <title>Pollos Tavo's | Pollos Asados y Carnes Asadas</title>
+  <meta name="description" content="Pollos Tavo's — ¡Ricos y Sabrosos! Disfruta pollos asados, carnes, paquetes y complementos. Realiza tu pedido fácilmente por WhatsApp.">
+  <meta name="keywords" content="pollos asados, pollos tavo's, pollo asado, carnes asadas, paquetes de pollo, comida para llevar, pollos a domicilio, restaurante de pollos">
+  <meta name="theme-color" content="#171110">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Fredoka', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: { 400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C' },
-                        gold: { 400: '#FBBF24', 500: '#F59E0B' },
-                        wa: { 500: '#25D366', 600: '#128C7E' },
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- ============ OPEN GRAPH ============ -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pollos Tavo's | Pollos Asados y Carnes Asadas">
+  <meta property="og:description" content="¡Ricos y Sabrosos! Pollos asados, carnes asadas, paquetes y complementos. Pide por WhatsApp: 811 273 5442.">
+  <!-- En producción usa la URL absoluta: https://tudominio.com/images/hero.jpg -->
+  <meta property="og:image" content="im/hero.jpg">
+  <meta property="og:locale" content="es_MX">
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #B22222; color: #FAFAF9; overflow-x: hidden; }
+  <link rel="icon" type="image/jpeg" href="img/logo.jpg">
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0C0A09; }
-        ::-webkit-scrollbar-thumb { background: #44403C; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #57534E; }
+  <!-- ============ TIPOGRAFÍAS ============ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        /* Animations */
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
-        @keyframes steam { 0% { opacity: 0; transform: translateY(0) scaleX(1); } 50% { opacity: 0.4; } 100% { opacity: 0; transform: translateY(-80px) scaleX(1.5); } }
-        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  <link rel="stylesheet" href="css/styles.css">
 
-        .anim-float { animation: float 5s ease-in-out infinite; }
-        .anim-float-delay { animation: float 5s ease-in-out 1.5s infinite; }
-
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal-left.active { opacity: 1; transform: translateX(0); }
-        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal-right.active { opacity: 1; transform: translateX(0); }
-        .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal-scale.active { opacity: 1; transform: scale(1); }
-
-        /* Glass */
-        .glass { background: rgba(12, 10, 9, 0.75); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.06); }
-        .glass-light { background: rgba(28, 25, 23, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.05); }
-
-        /* Cards */
-        .card { background: #1C1917; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .card:hover { transform: translateY(-6px); border-color: rgba(249,115,22,0.2); box-shadow: 0 25px 60px -15px rgba(249,115,22,0.12); }
-
-        .card-featured { background: linear-gradient(145deg, #1C1917, #292524); border: 1px solid rgba(249,115,22,0.25); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
-        .card-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, #F97316, #FBBF24); }
-        .card-featured:hover { transform: translateY(-8px); border-color: rgba(249,115,22,0.4); box-shadow: 0 30px 70px -15px rgba(249,115,22,0.2); }
-
-        /* Buttons */
-        .btn-primary { background: linear-gradient(135deg, #EA580C, #F97316); color: white; padding: 0.875rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; box-shadow: 0 8px 30px -8px rgba(234,88,12,0.5); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px -8px rgba(234,88,12,0.6); background: linear-gradient(135deg, #C2410C, #EA580C); }
-        .btn-primary:active { transform: translateY(0); }
-
-        .btn-secondary { background: transparent; color: #FAFAF9; padding: 0.875rem 2rem; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .btn-secondary:hover { border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.08); color: #FB923C; }
-
-        .btn-wa { background: linear-gradient(135deg, #128C7E, #25D366); color: white; padding: 1rem 2.5rem; border-radius: 100px; font-weight: 700; font-size: 1.1rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; box-shadow: 0 8px 30px -8px rgba(37,211,102,0.4); font-family: 'Fredoka', sans-serif; }
-        .btn-wa:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 45px -8px rgba(37,211,102,0.5); }
-
-        .btn-wa-sm { background: linear-gradient(135deg, #128C7E, #25D366); color: white; padding: 0.625rem 1.25rem; border-radius: 100px; font-weight: 600; font-size: 0.8rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
-        .btn-wa-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(37,211,102,0.4); }
-
-        /* Clip shapes */
-        .clip-curved { border-radius: 2rem 2rem 0 2rem; }
-        .clip-curved-alt { border-radius: 0 2rem 2rem 2rem; }
-        .clip-organic { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-
-        /* Gradient text */
-        .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .text-gradient-red { background: linear-gradient(135deg, #EF4444, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-        /* Background pattern */
-        .bg-dots { background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 32px 32px; }
-
-        /* Steam effect */
-        .steam-container { position: absolute; top: -20px; left: 50%; width: 100px; height: 100px; pointer-events: none; }
-        .steam { position: absolute; bottom: 0; width: 8px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; filter: blur(6px); animation: steam 2.5s ease-out infinite; }
-        .steam:nth-child(1) { left: 20%; animation-delay: 0s; }
-        .steam:nth-child(2) { left: 50%; animation-delay: 0.8s; }
-        .steam:nth-child(3) { left: 75%; animation-delay: 1.6s; }
-        
-        * ===== MENU CREATIVE CARDS ===== */
-        .menu-card {
-            background: linear-gradient(160deg, #171412, #1C1917);
-            border: 1px solid rgba(255,255,255,.05);
-            border-radius: 1.25rem;
-            padding: 1.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all .45s cubic-bezier(.16,1,.3,1);
-            cursor: pointer;
-        }
-        .menu-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #EF4444, #F97316, #FBBF24);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .5s cubic-bezier(.16,1,.3,1);
-        }
-        .menu-card:hover::before { transform: scaleX(1); }
-        .menu-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(234,88,12,.3);
-            box-shadow: 0 20px 50px -12px rgba(234,88,12,.2), 0 0 0 1px rgba(234,88,12,.1);
-        }
-        .menu-card:active { transform: translateY(-4px) scale(1.01); }
-
-        .menu-card .icon-wrap {
-            width: 56px; height: 56px;
-            border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.75rem;
-            transition: all .4s ease;
-            position: relative;
-        }
-        .menu-card:hover .icon-wrap { transform: scale(1.1) rotate(-3deg); }
-
-        .menu-card .price-tag {
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 700;
-            background: linear-gradient(135deg, #EA580C, #FBBF24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all .3s ease;
-        }
-        .menu-card:hover .price-tag { transform: scale(1.05); display: inline-block; }
-
-        .menu-card .order-btn {
-            opacity: 0;
-            transform: translateY(8px);
-            transition: all .35s cubic-bezier(.16,1,.3,1);
-        }
-        .menu-card:hover .order-btn { opacity: 1; transform: translateY(0); }
-
-        .menu-card.best-seller {
-            border-color: rgba(234,88,12,.2);
-            animation: borderGlow 3s ease-in-out infinite;
-        }
-        .menu-card.best-seller::after {
-            content: '⭐ Más Vendido';
-            position: absolute;
-            top: 12px; right: 12px;
-            background: linear-gradient(135deg, #EA580C, #F97316);
-            color: white;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 0.2rem 0.6rem;
-            border-radius: 100px;
-            letter-spacing: 0.03em;
-        }
-
-        /* Logo watermark */
-        .logo-watermark {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            width: 280px;
-            opacity: 0.06;
-            transform: rotate(-8deg);
-            pointer-events: none;
-            z-index: 0;
-            animation: logoPulse 6s ease-in-out infinite;
-            filter: grayscale(20%);
-        }
-        @media(min-width: 768px) {
-            .logo-watermark { width: 360px; bottom: -40px; right: -40px; }
-        }
-        @media(min-width: 1024px) {
-            .logo-watermark { width: 440px; bottom: -60px; right: -60px; }
-        }
-
-        /* Menu section bg */
-        .menu-section-bg {
-            background:
-                radial-gradient(ellipse 80% 60% at 20% 80%, rgba(239,68,68,.06), transparent),
-                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(249,115,22,.05), transparent),
-                radial-gradient(ellipse 50% 40% at 50% 50%, rgba(251,191,36,.03), transparent),
-                #0C0A09;
-        }
-
-        /* ===== END MENU CREATIVE ===== */
-
-        /* Marquee */
-        .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
-        .marquee-track:hover { animation-play-state: paused; }
-
-        /* WhatsApp Float */
-        .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; }
-        .wa-float-btn { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #128C7E, #25D366); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 25px rgba(37,211,102,0.45); position: relative; border: none; }
-        .wa-float-btn:hover { transform: scale(1.1); box-shadow: 0 8px 35px rgba(37,211,102,0.55); }
-        .wa-float-btn::before { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: rgba(37,211,102,0.3); animation: pulse-ring 2s ease-out infinite; }
-        .wa-float-tooltip { position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%); background: #1C1917; color: #FAFAF9; padding: 0.5rem 1rem; border-radius: 0.75rem; font-size: 0.8rem; font-weight: 500; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.08); }
-        .wa-float:hover .wa-float-tooltip { opacity: 1; }
-
-        /* Mobile menu */
-        .mobile-menu { position: fixed; inset: 0; z-index: 100; background: rgba(12,10,9,0.97); backdrop-filter: blur(24px); transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-        .mobile-menu.open { transform: translateX(0); }
-        .mobile-menu a { font-family: 'Fredoka', sans-serif; font-size: 1.75rem; font-weight: 600; color: #D6D3D1; text-decoration: none; transition: color 0.3s; }
-        .mobile-menu a:hover { color: #F97316; }
-
-        /* Package badge */
-        .popular-badge { position: absolute; top: -1px; right: 1.5rem; background: linear-gradient(135deg, #EA580C, #F97316); color: white; padding: 0.35rem 1rem; border-radius: 0 0 0.75rem 0.75rem; font-family: 'Fredoka', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-
-        /* Nav active */
-        .nav-link { position: relative; color: #A8A29E; transition: color 0.3s; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-        .nav-link:hover, .nav-link.active { color: #FAFAF9; }
-        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #F97316; border-radius: 1px; transition: width 0.3s ease; }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-
-        /* Flavor card gradient bg */
-        .flavor-bg-1 { background: linear-gradient(145deg, #7C2D12, #9A3412); }
-        .flavor-bg-2 { background: linear-gradient(145deg, #14532D, #166534); }
-        .flavor-bg-3 { background: linear-gradient(145deg, #78350F, #92400E); }
-        .flavor-bg-4 { background: linear-gradient(145deg, #713F12, #854D0E); }
-
-        /* Divider */
-        .section-divider { width: 60px; height: 3px; background: linear-gradient(to right, #F97316, #FBBF24); border-radius: 2px; margin: 0 auto; }
-
-        /* Image container fallback */
-        .img-container { background: #292524; overflow: hidden; position: relative; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .img-container:hover img { transform: scale(1.05); }
-
-        @media (max-width: 768px) {
-            .btn-primary, .btn-secondary { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
-            .btn-wa { padding: 0.875rem 2rem; font-size: 1rem; }
-        }
-    </style>
+  <!-- ============ DATOS ESTRUCTURADOS ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Pollos Tavo's",
+    "slogan": "¡Ricos y Sabrosos!",
+    "servesCuisine": "Mexicana, Pollos asados, Carnes asadas",
+    "telephone": "+52 81 1273 5442",
+    "openingHours": "Mo-Su 12:00-18:00",
+    "priceRange": "$"
+  }
+  </script>
 </head>
-<body class="bg-dots">
+<body>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <!-- Logo -->
-                <a href="#inicio" class="flex items-center gap-2.5 group">
-                <img src="img/logo.jpg" alt="Pollos Tavos - Logo" class="h-20 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
-                    <!--<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-brand-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-brand-600/30 group-hover:shadow-brand-600/50 transition-shadow">T</div>-->
-                    <div class="hidden sm:block">
-                        <span class="font-display font-bold text-lg text-stone-50 leading-none block">Pollos Tavo's</span>
-                        <span class="text-[10px] text-stone-500 font-medium tracking-wider uppercase">Est. 2001</span>
-                    </div>
-                </a>
+  <a class="skip-link" href="#menu">Ir al menú</a>
 
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#inicio" class="nav-link active">Inicio</a>
-                    <a href="#menu" class="nav-link">Menú</a>
-                    <!--<a href="#sabores" class="nav-link">Sabores</a>-->
-                    <a href="#paquetes" class="nav-link">Paquetes</a>
-                    <a href="#contacto" class="nav-link">Contacto</a>
-                </div>
+  <!-- ============ SPRITE DE ICONOS SVG ============ -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-wa" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.2 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.7 57.4 2.8 3.7 39.4 60.1 95.4 83.6 35.4 14.8 49.3 13.4 65 12 17.4-1.5 32.8-7 37.5-13.9 4.8-6.9 4.8-12.8 3.4-14-1.3-1.2-5-2.1-10.5-4.9z"/></symbol>
+    <symbol id="icon-fb" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></symbol>
+    <symbol id="icon-ig" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1-26.3 26.3-34.4 58-36.2 93.9-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.3 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></symbol>
+  </svg>
 
-                <!-- CTA + Hamburger -->
-                <div class="flex items-center gap-3">
-                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero hacer un pedido'); return false;" class="btn-wa-sm hidden sm:inline-flex">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                    </a>
-                    <button id="menuToggle" class="md:hidden w-10 h-10 rounded-xl bg-stone-800 border border-stone-700 flex flex-col items-center justify-center gap-1.5 cursor-pointer" aria-label="Menú">
-                        <span class="block w-5 h-0.5 bg-stone-300 rounded transition-all" id="bar1"></span>
-                        <span class="block w-5 h-0.5 bg-stone-300 rounded transition-all" id="bar2"></span>
-                        <span class="block w-3.5 h-0.5 bg-stone-300 rounded transition-all" id="bar3"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo" aria-label="Pollos Tavo's — Ir al inicio">
+        <img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's con su mascota, el pollo que da pulgar arriba" class="logo-img">
+      </a>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button onclick="closeMobileMenu()" class="absolute top-5 right-5 w-10 h-10 rounded-xl bg-stone-800 border border-stone-700 flex items-center justify-center cursor-pointer" aria-label="Cerrar">
-            <span class="iconify text-stone-300" data-icon="mdi:close" data-width="22"></span>
-        </button>
-        <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
-        <!--<a href="#sabores" onclick="closeMobileMenu()">Sabores</a>-->
-        <a href="#menu" onclick="closeMobileMenu()">Menú</a>
-        <a href="#paquetes" onclick="closeMobileMenu()">Paquetes</a>
-        <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
-        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero hacer un pedido'); closeMobileMenu(); return false;" class="btn-wa mt-4">
-            <span class="iconify" data-icon="mdi:whatsapp" data-width="24"></span>
-            Pedir por WhatsApp
+      <nav class="nav" id="nav-principal" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#promociones">Promociones</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#paquetes">Paquetes</a></li>
+          <li><a href="#complementos">Complementos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a class="btn btn-wa nav-wa" href="https://wa.me/528112735442"
+           data-wa="Hola, quiero realizar un pedido en Pollos Tavo's. ¿Me pueden compartir información?">
+          <svg class="icon"><use href="#icon-wa"/></svg> Pedir por WhatsApp
         </a>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-principal">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
 
-    <!-- ===== HERO ===== -->
-    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-            <img src="img/hero.jpg" alt="Pollo asado Pollos Tavo's" class="w-full h-full object-cover object-center" loading="eager">
-            <div class="absolute inset-0 bg-gradient-to-r from-[#0C0A09] via-[#0C0A09]/85 to-[#0C0A09]/40"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0C0A09] via-transparent to-[#0C0A09]/30"></div>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <canvas id="canvas-brasas" aria-hidden="true"></canvas>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Pollos y carnes asadas · Est. 2001</p>
+          <h1 class="hero-title">¡El mejor pollo asado de la zona!</h1>
+          <p class="hero-slogan">¡Ricos y Sabrosos!</p>
+          <p class="hero-desc">Ya estamos listos para consentirte con el mejor sabor que te hace volver desde 2001.</p>
+          <div class="hero-actions">
+            <a class="btn btn-wa" href="https://wa.me/528112735442"
+               data-wa="Hola, quiero realizar un pedido en Pollos Tavo's. ¿Me pueden Ayudar?">
+              <svg class="icon"><use href="#icon-wa"/></svg> Pedir por WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#menu">Ver menú</a>
+          </div>
         </div>
-
-        <!-- Organic blobs -->
-        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-brand-500/8 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-gold-500/5 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
-            <div class="max-w-2xl">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light mb-8" style="animation: fadeInUp 0.8s ease forwards;">
-                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                    <span class="text-xs font-medium text-stone-400 tracking-wide uppercase">Est. 2001 · Pollos y Carnes Asadas</span>
-                </div>
-
-                <!-- Headline -->
-                <h1 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6" style="animation: fadeInUp 0.8s 0.15s ease both;">
-                    El Mejor Pollo Asado
-                    <span class="text-gradient block mt-1">De la Zona!</span>
-                </h1>
-
-                <!-- Subtitle -->
-                <p class="text-stone-400 text-base sm:text-lg leading-relaxed mb-10 max-w-lg" style="animation: fadeInUp 0.8s 0.3s ease both;">
-                    Ya estamos listos para consentirte con el mejor sabor que te hace volver desde 2001. 
-                    <span class="text-stone-300 font-medium">Pollos Tavo's ¡Ricos y Sabrosos!</span>
-                </p>
-
-                <!-- CTAs -->
-                <div class="flex flex-wrap gap-4" style="animation: fadeInUp 0.8s 0.45s ease both;">
-                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola Pollos Tavo\'s! 🍗 Quiero hacer un pedido'); return false;" class="btn-wa">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="24"></span>
-                        Pedir por WhatsApp
-                    </a>
-                    <a href="#paquetes" class="btn-secondary">
-                        <span class="iconify" data-icon="mdi:silverware-fork-knife" data-width="18"></span>
-                        Ver Paquetes
-                    </a>
-                </div>
-
-                <!-- Trust row -->
-                <div class="flex flex-wrap items-center gap-6 mt-12 pt-8 border-t border-stone-800/60" style="animation: fadeInUp 0.8s 0.6s ease both;">
-                    <div class="flex items-center gap-2">
-                        <span class="iconify text-brand-500" data-icon="mdi:clock-outline" data-width="18"></span>
-                        <span class="text-xl text-white-500">Lun–Dom 12:00PM – 6:00PM</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="iconify text-brand-500" data-icon="mdi:motorbike" data-width="18"></span>
-                        <span class="text-xl text-white-500">Servicio a Domicilio</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="iconify text-brand-500" data-icon="mdi:star" data-width="18"></span>
-                        <span class="text-xl text-white-500">Aceptamos Tranferencias</span>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-media reveal">
+          <img src="img/hero.jpg" alt="Pollo asado dorado sobre la parrilla con carbón encendido y chispas" class="hero-img">
+          <img src="img/mascota.jpg" alt="Mascota de Pollos Tavo's con lentes de sol dando pulgar arriba" class="hero-mascot">
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce" style="animation: bounce 2s infinite, fadeInUp 0.8s 0.8s ease both;">
-            <span class="text-[10px] text-stone-600 uppercase tracking-widest">Scroll</span>
-            <span class="iconify text-stone-600" data-icon="mdi:chevron-down" data-width="20"></span>
-        </div>
+      </div>
     </section>
 
-    <!-- ===== MARQUEE 🥤 ===== -->
-    <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
-        <div class="marquee-track">
-            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap">
-                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
-                <span>🔥 CARNES ASADAS</span><span class="text-brand-600">✦</span>
-                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
-                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
-                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
-                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
-                <span>🔥 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
-                <span>🎉 ACEPTAMOS TRANSFERENCIAS</span><span class="text-brand-600">✦</span>
-                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
-                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
-                <span>🔥 SALCHICHA ASADAS</span><span class="text-brand-600">✦</span>
-                <span>🥔 SALSAS</span><span class="text-brand-600">✦</span>
-                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
-                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
-                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
-                <span>🔥 TORTILLAS</span><span class="text-brand-600">✦</span>
-                <span>🎉 ACEPTAMOS TRANSFERECIAS</span><span class="text-brand-600">✦</span>
-                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
-            </div>
-            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap" aria-hidden="true">
-                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
-                <span>🥩 CARNES ASADAS</span><span class="text-brand-600">✦</span>
-                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
-                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
-                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
-                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
-                <span>🔥 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
-                <span>🎉 DESDE 2001</span><span class="text-brand-600">✦</span>
-                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
-                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
-                <span>🥩 CARNES ASADAS</span><span class="text-brand-600">✦</span>
-                <span>🔥 SALCHICHA ASADA</span><span class="text-brand-600">✦</span>
-                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
-                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
-                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
-                <span>🥤 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
-                <span>🎉 DESDE 2001</span><span class="text-brand-600">✦</span>
-                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
-            </div><!--🥔🔥-->
-        </div>
-    </div>
+    <!-- ============ PROMOCIONES ============ -->
+    <section class="section" id="promociones">
+      <div class="container">
+        <h2 class="section-title">Promociones</h2>
+        <p class="section-tag">Paquetes con todo el sabor del asador, a precio de Tavo's.</p>
 
-    <!-- ===== NOSOTROS ===== -->
-    <section class="relative py-24 sm:py-32 overflow-hidden">
-        <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <!-- Image -->
-                <div class="reveal-left">
-                    <div class="relative">
-                        <div class="img-container clip-curved aspect-[4/3] shadow-2xl shadow-brand-600/10">
-                            <img src="img/logo.jpg" alt="Pollos Tavo's logo y señal" class="object-contain p-8 bg-stone-900" loading="lazy">
-                        </div>
-                        <!-- Floating badge -->
-                        <div class="absolute -bottom-4 -right-4 sm:bottom-4 sm:right-4 glass rounded-2xl p-4 anim-float shadow-xl">
-                            <div class="text-center">
-                                <span class="font-display font-bold text-3xl text-gradient block">17+</span>
-                                <span class="text-[11px] text-stone-500 font-medium uppercase tracking-wider">Años</span>
-                            </div>
-                        </div>
-                        <!-- Decorative dot -->
-                        <div class="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-brand-500/30 border border-brand-500/40"></div>
-                    </div>
-                        
-                        <div class="flex items-center gap-3">
-                        <a href="https://www.facebook.com/profile.php?id=61553563559793" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-blue-500 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all" aria-label="Facebook" target="_blank">
-                            <span class="iconify" data-icon="mdi:facebook" data-width="20"></span>
-                        </a>
-                        <a href="https://www.instagram.com/pollostavosoficial/" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all" aria-label="Instagram" target="_blank">
-                            <span class="iconify" data-icon="mdi:instagram" data-width="20"></span>
-                        </a>
-                        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero realizar un Pedido\'s'); return false;" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-white-400 hover:text-wa-500 hover:border-wa-500/30 hover:bg-wa-500/10 transition-all" aria-label="WhatsApp">
-                            <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
-                        </a>
-                        </div>
-                    
-                </div>
-
-                <!-- Content -->
-                <div class="reveal-right">
-                    <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Nuestra Historia</span>
-                    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
-                        Sabor, Calidad y<br><span class="text-gradient">Buen Precio</span>
-                    </h2>
-                    <div class="section-divider mb-8" style="margin:0; margin-bottom: 2rem;"></div>
-                    <p class="text-white-400 leading-relaxed mb-6">
-                        Desde 2001, en <strong class="text-white-400">Pollos Tavo's</strong> hemos perfeccionado el arte del pollo asado. Cada pieza se prepara con nuestra receta familiar, cocinada lentamente sobre fuego de carbón para lograr esa textura jugosa por dentro y delicioso por fuera.
-                    </p>
-                    <p class="text-white-400 leading-relaxed mb-10">
-                        Nuestro compromiso es simple: ingredientes frescos, sazón auténtico y el calor de una comida hecha con amor. Por eso somos <strong class="text-white-400">el mejor pollo de la Zona!.</strong>.
-                    </p>
-
-                    <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="text-center p-4 rounded-2xl bg-stone-900/60 border border-stone-800/50">
-                            <span class="font-display font-bold text-2xl sm:text-3xl text-gradient block">17+</span>
-                            <span class="text-xs text-white-500 font-medium mt-1 block">Años de tradición</span>
-                        </div>
-                        <div class="text-center p-4 rounded-2xl bg-stone-900/60 border border-stone-800/50">
-                            <span class="font-display font-bold text-2xl sm:text-3xl text-gradient block">Nuestro</span>
-                            <span class="text-xs text-white-500 font-medium mt-1 block">Sabor Especial</span>
-                        </div>
-                        <div class="text-center p-4 rounded-2xl bg-stone-900/60 border border-stone-800/50">
-                            <span class="font-display font-bold text-2xl sm:text-3xl text-gradient block">100%</span>
-                            <span class="text-xs text-white-500 font-medium mt-1 block">Fresco diario</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-       <!-- ===== MENU ===== -->
-    <section id="menu" class="relative menu-section-bg py-24 sm:py-32 overflow-hidden">
-        <!-- Subtle background glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-red-900/8 rounded-full blur-[150px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <!-- Section Header -->
-            <div class="text-center max-w-2xl mx-auto mb-6 reveal">
-                <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Menú</span>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
-                    Elige tu <span class="text-gradient">Favorito!</span>
-                </h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-white-400">Completa también tu pedido con nuestros deliciosos Complementos.</p>
-            </div>
-
-            <!-- Sub-label: Pollos -->
-            <div class="flex items-center gap-3 mb-6 mt-14 reveal">
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
-                <span class="font-display font-semibold text-2xl text-white-500 uppercase tracking-widest flex items-center gap-2">
-                    <span class="iconify text-brand-500" data-icon="mdi:food-drumstick" data-width="18"></span>
-                    Pollos Asados
-                </span>
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
-            </div>
-
-            <!-- Pollo Cards Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 mb-4">
-
-                <!-- 1/2 Pollo onclick="pedirWhatsApp('Quiero pedir ½ Pollo ($100)')" -->
-                <div class="menu-card reveal" style="transition-delay:0ms">
-                    <div class="icon-wrap bg-red-950/50 mb-4">
-                        <span>🍗</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">½ Pollo</h3>
-                    <p class="text-[12px] text-red-600 mb-3">Medio pollo asado</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$100</span>
-                        <div class="order-btn">
-                           <span class="flex items-center justify-center">
-                            <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir ½ Pollo ($100)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                            </span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 1 Pollo — BEST SELLER -->
-                <div class="menu-card best-seller reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-red-950/50 mb-4">
-                        <span>🍗</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 Pollo</h3>
-                    <p class="text-[12px] text-red-600 mb-3">Pollo entero asado</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$185</span>
-                        <div class="order-btn">
-                            <span class="flex items-center justify-center">
-                            <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir  Pollo< ($185)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                            </span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 1½ Pollo onclick="pedirWhatsApp('Quiero pedir 1½ Pollo ($250)')"-->
-                <div class="menu-card reveal" style="transition-delay:160ms">
-                    <div class="icon-wrap bg-red-950/50 mb-4">
-                        <span>🍗</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1½ Pollo</h3>
-                    <p class="text-[12px] text-red-600 mb-3">Pollo y medio asado</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$250</span>
-                        <div class="order-btn">
-                           <span class="flex items-center justify-center">
-                            <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir ½ Pollo ($250)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                            </span></a>
-                        </div>
-                    </div></a>
-                </div>
-
-                <!-- 2 Pollos -->
-                <div class="menu-card reveal" style="transition-delay:240ms">
-                    <div class="icon-wrap bg-red-950/50 mb-4">
-                        <span>🍗</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">2 Pollos</h3>
-                    <p class="text-[12px] text-red-600 mb-3">Dos pollos enteros</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$340</span>
-                        <div class="order-btn">
-                            <span class="flex items-center justify-center">
-                            <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir 2 Pollos ($340)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                            </span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sub-label: Carnes -->
-            <div class="flex items-center gap-3 mb-6 mt-12 reveal">
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
-                <span class="font-display font-semibold text-2xl text-white-500 uppercase tracking-widest flex items-center gap-2">
-                    <span class="iconify text-brand-500" data-icon="mdi:steak" data-width="18">🥩</span>
-                    Carnes Asadas
-                </span>
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
-            </div>
-
-            <!-- Carne Cards Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-
-                <!-- 1/2 Carne onclick="pedirWhatsApp('Quiero pedir 1/2 Carne ($165)')" -->
-                <div class="menu-card reveal" style="transition-delay:0ms" >
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span>🥩</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">½ Carne</h3>
-                    <p class="text-[12px] text-red-600 mb-3">Medio kilo de carne</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$165</span>
-                        <div class="order-btn">
-                            <span class="flex items-center justify-center">
-                            <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir ½ kg Carne ($165)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                            </span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 1 kg Carne -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span>🥩</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 kg Carne</h3>
-                    <p class="text-[12px] text-red-600 mb-3">Un kilo de carne asada</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$310</span>
-                        <div class="order-btn">
-                            <span class="flex items-center justify-center">
-                                <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir 1kg de Carne ($310)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                            </span></a>
-                        </div>
-                    </div>
-                </div>
-             </div>
-
-            <!-- Sub-label: Carnes -->
-            <div class="flex items-center gap-3 mb-6 mt-12 reveal">
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
-                <span class="font-display font-semibold text-xl text-white-500 uppercase tracking-widest flex items-center gap-2">
-                    <span>🔥</span>
-                    Complementos
-                </span>
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700/60 to-transparent"></div>
-            </div>
-
-            <!-- Carne Cards Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-
-                <div class="menu-card reveal" style="transition-delay:0ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-  <path d="M0 0h24v24H0z" fill="none" />
-  <path fill="#f23007" d="M19 5.3c1.2.5 2 1.8 2 3.2C21 15.4 15.4 21 8.5 21c-1.4 0-2.6-.8-3.2-2L3 20.5v-6L5.3 16c.6-1.2 1.8-2 3.2-2c3 0 5.5-2.5 5.5-5.5c0-1.4.8-2.6 2-3.2L14.5 3h6z" />
-</svg></span>
-                    </div>
-                    
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 Salchicha</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Salchicha Asada</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$15</span>
-                    </div>
-                </div> 
-
-                <!-- 3 Salchichas -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-  <path d="M0 0h24v24H0z" fill="none" />
-  <path fill="#f23007" d="M19 5.3c1.2.5 2 1.8 2 3.2C21 15.4 15.4 21 8.5 21c-1.4 0-2.6-.8-3.2-2L3 20.5v-6L5.3 16c.6-1.2 1.8-2 3.2-2c3 0 5.5-2.5 5.5-5.5c0-1.4.8-2.6 2-3.2L14.5 3h6z" />
-</svg></span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">3 Salchichas</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Salchicha asada</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$35</span>
-                    </div>
-                </div>
-                
-                <!-- 1 Salchicha Preparada -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-  <path d="M0 0h24v24H0z" fill="none" />
-  <path fill="#f23007" d="M19 5.3c1.2.5 2 1.8 2 3.2C21 15.4 15.4 21 8.5 21c-1.4 0-2.6-.8-3.2-2L3 20.5v-6L5.3 16c.6-1.2 1.8-2 3.2-2c3 0 5.5-2.5 5.5-5.5c0-1.4.8-2.6 2-3.2L14.5 3h6z" />
-</svg></span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 Salchicha Prep.</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Con Queso y Tocino</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$25</span>
-                    </div>
-                </div>
-                
-                <!-- 3 Salchichas Preparadas 🔥-->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-  <path d="M0 0h24v24H0z" fill="none" />
-  <path fill="#f23007" d="M19 5.3c1.2.5 2 1.8 2 3.2C21 15.4 15.4 21 8.5 21c-1.4 0-2.6-.8-3.2-2L3 20.5v-6L5.3 16c.6-1.2 1.8-2 3.2-2c3 0 5.5-2.5 5.5-5.5c0-1.4.8-2.6 2-3.2L14.5 3h6z" />
-</svg></span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">3 Salchichas Prep.</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Con Queso y Tocino</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$65</span>
-                    </div>
-                </div>
-                
-                <!-- Totopos 🔥-->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#fff" d="M18 11V6h-3V4h-3V2H8v3H6v6H5l2 11h10l2-11zm-2.14 0c-.16.61-.46 1.16-.86 1.62v-4l2 1V11zM17 7v1.5l-2-1V7zm-5-2h2v3.5l-2 1zm0 5.62l2-1v3.83c-.59.35-1.27.55-2 .55zm-1 3.24c-.79-.21-1.5-.64-2-1.24v-3l2-1zM9 3h2v4.5L10 8V5H9zM7 6h2v2.5L8 9v2H7z" />
-</svg>
-</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">Totopos</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Bolsa de Totopos</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$25</span>
-                    </div>
-                </div>
-                
-                <!-- Chile Preparado -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span>🌶️</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">1 Chile Preparado</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Con Queso y Tocino</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$25</span>
-                    </div>
-                </div>
-                
-                <!-- 3 Chiles Preparados -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span>🌶️</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">3 Chiles Preparados</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Con Queso y Tocino</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$65</span>
-                    </div>
-                </div>
-                
-                <!-- Cebolla -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
-	<path d="M0 0h32v32H0z" fill="none" />
-	<path fill="#fff" d="M12.74 2.458c0-1.333 1.658-1.981 2.553-.959l1.182 1.354L17.657 1.5c.895-1.023 2.553-.375 2.553.958v1.83c0 .738.44 1.405 1.136 1.712c4.464 1.892 7.604 6.325 7.604 11.488c0 6.076-4.349 11.146-10.11 12.25v.01c0 .69-.56 1.25-1.25 1.25h-2.16c-.69 0-1.25-.56-1.25-1.25v-.005C8.458 28.632 4 23.438 4 17.478c0-5.166 3.143-9.589 7.608-11.48a1.86 1.86 0 0 0 1.132-1.7zm2 1.449v.39a3.86 3.86 0 0 1-2.346 3.54l-.004.002q-.276.116-.542.248c-1.96 2.085-3.118 5.341-3.118 8.84c0 5.31 2.645 9.753 6.153 10.805c-1.346-2.014-2.063-6.514-2.063-10.814c0-3.76.5-7.21 1.37-9.44l.75.29c-.82 2.11-1.31 5.53-1.31 9.15c0 3.03.33 5.88.94 8.02c.552 1.949 1.2 2.82 1.69 3.022q.221.005.441 0c.489-.203 1.137-1.074 1.689-3.022c.6-2.14.94-4.98.94-8.02c0-3.61-.49-7.03-1.31-9.15l.75-.29c.87 2.24 1.37 5.68 1.37 9.44c-.007 4.3-.72 8.801-2.064 10.814c3.508-1.05 6.154-5.494 6.154-10.804c0-3.495-1.155-6.746-3.109-8.832a10 10 0 0 0-.56-.257l-.012-.005a3.87 3.87 0 0 1-2.339-3.546v-.381l-.635.726a1.456 1.456 0 0 1-2.186.016l-.006-.007zM9.67 9.52A10.44 10.44 0 0 0 6 17.478c0 3.797 2.18 7.24 5.335 9.08q-.547-.559-1.035-1.24c-1.61-2.25-2.49-5.23-2.49-8.39c0-2.728.67-5.326 1.86-7.407m11.817 17.167a10.47 10.47 0 0 0 5.463-9.2c0-3.176-1.416-6.025-3.649-7.947c1.184 2.078 1.849 4.668 1.849 7.387c0 3.16-.88 6.14-2.49 8.39q-.55.762-1.173 1.37" />
-</svg>
-</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">Cebolla Asada</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Cebollita Asada</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$10</span>
-                    </div>
-                </div>
-                
-                <!-- Chiles Toreado -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span>🌶️</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">Chiles Toreado</h3>
-                    <p class="text-[11px] text-white-600 mb-3">3 Chilito Toreado</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$5</span>
-                    </div>
-                </div>
-                
-                <!-- Coca cola -->
-                <div class="menu-card reveal" style="transition-delay:80ms">
-                    <div class="icon-wrap bg-orange-950/50 mb-4">
-                        <span>🥤</span>
-                    </div>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-stone-100 mb-1">Coca Cola 1.75lts</h3>
-                    <p class="text-[11px] text-white-600 mb-3">Coca cola</p>
-                    <div class="flex items-end justify-between">
-                        <span class="price-tag text-2xl sm:text-3xl">$35</span>
-                    </div>
-                </div>
-             </div>
-          <!-- Tip bar -->
+        <div class="promo-grid">
+          <article class="promo-card reveal">
+            <header class="promo-head"><h3>Promo Miercoles</h3><span class="promo-price">$210</span></header>
+            <ul class="promo-list">
+              <li>1 pollo y !/2</li>
+              <li>Tortillas</li>
+              <li>Cebola Asada</li>
+              <li>Chile Toreado</li>
+              <li>Salsas</li>
+             </ul>
+            <a class="btn btn-yellow" href="https://wa.me/528112735442"
+               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Promo Miercoles — $210. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+          </article>
           
-            <div class="mt-12 p-5 rounded-2xl glass-light reveal">
-                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-brand-600/15 flex items-center justify-center flex-shrink-0">
-                        <span class="iconify text-brand-500" data-icon="mdi:lightbulb-on-outline" data-width="22"></span>
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-sm text-stone-300 font-medium mb-0.5">¿No sabes qué elegir?</p>
-                        <p class="text-sm text-stone-500">Prueba nuestros <a href="#paquetes" class="text-brand-400 hover:text-brand-300 font-medium underline underline-offset-2 transition-colors">Paquetes</a> que incluyen pollo, carne, complementos y bebidas a precio especial.</p>
-                    </div>
-                    <a href="#paquetes" class="btn-primary text-sm py-2.5 px-5 flex-shrink-0">
-                        Ver Paquetes
-                        <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span>
-                    </a>
-                </div>
-            </div>
+          <article class="promo-card reveal" style="--d:.24s">
+            <header class="promo-head"><h3>Promo Mundialista</h3><span class="promo-price">$249</span></header>
+            <ul class="promo-list">
+              <li>1/2 Pollo</li>
+              <li>1/2 kg de carne</li>
+              <li>Tortillas</li>
+              <li>Cebolla Asada</li>
+              <li>Chile toreado</li>
+              <li>Limones</li>
+            </ul>
+            <a class="btn btn-yellow" href="https://wa.me/528112735442"
+               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Promo Mundialista — $249. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+          </article>
+          
+            <article class="promo-card reveal" style="--d:.16s">
+            <header class="promo-head"><h3>Combo Pollo</h3><span class="promo-price">$215</span></header>
+            <ul class="promo-list">
+              <li>1 pollo</li>
+              <li>1 Coca Cola 1.75Lts</li>
+              <li>Tortillas</li>
+              <li>Cebolla Asada</li>
+              <li>Chile toreado</li>
+              <li>Limones</li>
+            </ul>
+            <a class="btn btn-yellow" href="https://wa.me/528112735442"
+               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Combo Pollo — $215. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+          </article>
+
+          <!--<article class="promo-card reveal" style="--d:.08s">
+            <header class="promo-head"><h3>Paquete Individual</h3><span class="promo-price">$130</span></header>
+            <ul class="promo-list">
+              <li>1/2 pollo</li>
+              <li>3 salchichas</li>
+            </ul>
+            <a class="btn btn-yellow" href="https://wa.me/528112735442"
+               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+          </article>-->
         </div>
+      </div>
     </section>
-    <!-- ===== FIN MENU ===== -->
+
+    <!-- ============ MENÚ ============ -->
+    <section class="section pedido" id="menu">
+      <div class="container">
+        <h2 class="section-title">Nuestro menú</h2>
+        <p class="section-tag">Sabor auténtico de asador, precios que sí alcanzan.</p>
+
+        <div class="menu-grid">
+          <div class="menu-cat reveal">
+            <h3>🍗 Pollos</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <span class="menu-name">1 pollo</span><span class="menu-dots"></span><span class="menu-price">$185</span>
+                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1 Pollo — $185. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
+              </li>
+              <li class="menu-item">
+                <span class="menu-name">1/2 pollo</span><span class="menu-dots"></span><span class="menu-price">$100</span>
+                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1/2 Pollo — $100. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
+              </li>
+              <li class="menu-item">
+                <span class="menu-name">1 1/2 pollos</span><span class="menu-dots"></span><span class="menu-price">$250</span>
+                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1 1/2 Pollos — $250. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
+              </li>
+              <li class="menu-item">
+                <span class="menu-name">2 pollos</span><span class="menu-dots"></span><span class="menu-price">$340</span>
+                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 2 Pollos — $340. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-cat reveal" style="--d:.1s">
+            <h3>🥩 Carne asada</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <span class="menu-name">1/2 kg de carne</span><span class="menu-dots"></span><span class="menu-price">$165</span>
+                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1/2 kg de carne — $165. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
+              </li>
+              <li class="menu-item">
+                <span class="menu-name">1 kg de carne</span><span class="menu-dots"></span><span class="menu-price">$310</span>
+                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1 kg de carne — $310. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="menu-note">🌮 Todos incluyen tortilla, cebolla asada, chile toreado, limones y salsa.</p>
+        <p class="menu-legal">*Precios sujetos a cambios sin previo aviso · Actualización de precios 2026</p>
+      </div>
+    </section>
     
-    <!-- ===== PAQUETES ===== -->
-    <section id="paquetes" class="relative py-24 sm:py-32 overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/4 rounded-full blur-[150px] pointer-events-none"></div>
+    <!-- ============ PAQUETES ============ -->
+    <section class="section" id="paquetes">
+      <div class="container">
+        <h2 class="section-title">Paquetes para compartir</h2>
+        <p class="section-tag">Directo de la parrilla a tu mesa, con todo incluido.</p>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-                <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Nuestros Paquetes</span>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
-                    El Paquete Perfecto<br><span class="text-gradient">Para Cada Ocación</span>
-                </h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-xl text-white-400">Contamos con Servicio a Domicilio $30 y aceptamos Transferencias. ¡Elige el Tuyo!</p>
+        <div class="paq-grid">
+          <article class="paq-card reveal">
+            <div class="paq-media">
+              <img src="img/galeria1.jpg" loading="lazy" alt="Paquete familiar con pollo asado, carne, salchichas, tortillas y salsas">
+              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
             </div>
-
-            <!-- Packages Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                <!-- PAQ INDIVIDUAL -->
-                <div class="card p-7 flex flex-col reveal" style="transition-delay: 0ms;">
-                    <div class="mb-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-stone-800 text-stone-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Individual</span>
-                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Individual</h3>
-                    </div>
-                    <div class="mb-6">
-                        <span class="font-display font-bold text-4xl text-gradient">$130</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            ½ Pollo
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            3 Salchichas
-                        </li>
-
-                        <!-- <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            Salsas
-                        </li>-->
-                        
-                        <li class="flex items-start gap-2.5 text-sm text-stone-500">
-                            <span class="iconify text-stone-600 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
-                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas 
-                        </li>
-                    </ul>
-                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete INDIVIDUAL ($130)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                    </a>
-                </div>
-
-                <!-- PAQ ALCANCE -->
-                <div class="card-featured p-7 flex flex-col reveal" style="transition-delay: 100ms;">
-                    <div class="popular-badge">Popular</div>
-                    <div class="mb-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Para compartir</span>
-                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Alcance</h3>
-                    </div>
-                    <div class="mb-6">
-                        <span class="font-display font-bold text-4xl text-gradient">$245</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            1 Pollo
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            3 Salchichas
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            1 Salchicha Preparada
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-300">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            Totopos
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-stone-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
-                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas
-                        </li>
-                    </ul>
-                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete ALCANCE ($245)'); return false;" class="btn-wa w-full justify-center text-sm py-2.5">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="18"></span>
-                        Pedir Ahora
-                    </a>
-                </div>
-
-                <!-- PAQ COMPARTAS -->
-                <div class="card p-7 flex flex-col reveal" style="transition-delay: 200ms;">
-                    <div class="mb-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-stone-800 text-stone-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Familiar</span>
-                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Compartas</h3>
-                    </div>
-                    <div class="mb-6">
-                        <span class="font-display font-bold text-4xl text-gradient">$340</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            1 Pollo
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            1/2 KG Carne Asada
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            2 Salchichas
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-500">
-                            <span class="iconify text-stone-600 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
-                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas
-                        </li>
-                    </ul>
-                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete COMPARTAS ($340)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                    </a>
-                </div>
-
-                <!-- PAQ LLENES -->
-                <div class="card p-7 flex flex-col reveal" style="transition-delay: 300ms;">
-                    <div class="mb-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-gold-500/15 text-gold-400 text-[11px] font-semibold uppercase tracking-wider mb-3">Mega</span>
-                        <h3 class="font-display font-bold text-2xl text-stone-100">Paquete Llenes</h3>
-                    </div>
-                    <div class="mb-6">
-                        <span class="font-display font-bold text-4xl text-gradient">$480</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            1 Pollo
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            1kg Carne Asada
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            3 Salchichas
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            2 Salchichas preparadas
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-400">
-                            <span class="iconify text-brand-500 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle" data-width="16"></span>
-                            Totopos
-                        </li>
-                        <li class="flex items-start gap-2.5 text-sm text-stone-500">
-                            <span class="iconify text-stone-600 mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline" data-width="16"></span>
-                            Tortillas + Cebolla Asada + Chiles toreados + Limónes + Salsas
-                        </li>
-                    </ul>
-                    <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('¡Hola! Quiero pedir el Paquete LLENES ($535)'); return false;" class="btn-wa-sm w-full justify-center">
-                        <span class="iconify" data-icon="mdi:whatsapp" data-width="16"></span>
-                        Pedir Ahora
-                    </a>
-                </div>
+            <div class="paq-body">
+              <h3>Paquete Llenes</h3>
+              <p class="paq-price">$535 <small>MXN</small></p>
+              <p class="paq-desc">1 pollo, 1 kg de carne, 3 salchichas, 2 salchichas preparadas y 1 totopos.</p>
+              <a class="btn btn-yellow" href="https://wa.me/528112735442"
+                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Llenes — $535 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
             </div>
+          </article>
 
-            <!-- Note -->
-            <p class="text-center text-white-500 text-xl mt-8 reveal">
-                <span class="iconify inline-block align-middle mr-1" data-icon="mdi:information-outline" data-width="16"></span>
-                Todos los paquetes incluyen Tortillas,Cebolla Asada,Chiles toreados,Limónes y Salsas.
-            </p>
+          <article class="paq-card reveal" style="--d:.24s">
+            <div class="paq-media">
+              <img src="img/galeria.jpg" loading="lazy" alt="Carne asada al carbón con pollo y salchichas para compartir">
+              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+            </div>
+            <div class="paq-body">
+              <h3>Paquete Compartas</h3>
+              <p class="paq-price">$340 <small>MXN</small></p>
+              <p class="paq-desc">1 pollo, 1/2 kg de carne y 2 salchichas.</p>
+              <a class="btn btn-yellow" href="https://wa.me/528112735442"
+                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Compartas — $340 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+            </div>
+          </article>
+
+         <article class="paq-card reveal" style="--d:.16s">
+            <div class="paq-media">
+              <img src="img/pollotavos.png" loading="lazy" alt="Pollo asado con salchichas al carbón, tortillas y salsas">
+              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+            </div>
+            <div class="paq-body">
+              <h3>Paquete Alcance</h3>
+              <p class="paq-price">$245 <small>MXN</small></p>
+              <p class="paq-desc">1 pollo, 3 salchichas, 1 salchicha preparada y 1 totopos.</p>
+              <a class="btn btn-yellow" href="https://wa.me/528112735442"
+                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Alcance — $245 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+            </div>
+          </article>
+
+          <article class="paq-card reveal" style="--d:.08s">
+            <div class="paq-media">
+              <img src="img/galeria1.jpg" loading="lazy" alt="Medio pollo asado dorado con cebolla asada, chiles y limones">
+              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+            </div>
+            <div class="paq-body">
+              <h3>Paquete Individual</h3>
+              <p class="paq-price">$130 <small>MXN</small></p>
+              <p class="paq-desc">1/2 pollo y 3 salchichas. El antojo perfecto para ti.</p>
+              <a class="btn btn-yellow" href="https://wa.me/528112735442"
+                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+            </div>
+          </article>
         </div>
-    </section>
-      
-        <!-- ===== MARQUEE ===== -->
-    <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
-        <div class="marquee-track">
-            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-2xl whitespace-nowrap">
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-            </div>
-            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-2xl whitespace-nowrap" aria-hidden="true">
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== GALLERY ===== -->
-    <section class="relative py-24 sm:py-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-                <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Galería</span>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
-                    Se Ve Rico,<br><span class="text-gradient">Sabe Mejor</span>
-                </h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="reveal-left">
-                    <div class="img-container clip-curved aspect-[4/3] shadow-2xl shadow-brand-600/8 relative group">
-                        <img src="img/pollotavos.png" alt="Combo completo de Pollos Tavo's con pollo, arroz, papas y acompañamientos" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                            <div>
-                                <span class="font-display font-bold text-lg text-white">Combo Pollo</span>
-                                <p class="text-sm text-stone-300">Pollo, totopos, salchicha, chile toreado y mas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal-right">
-                    <div class="img-container clip-curved-alt aspect-[4/3] shadow-2xl shadow-brand-600/8 relative group">
-                        <img src="img/galeria.jpg" alt="Plato individual de Pollos Tavo's con todos los acompañamientos" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                            <div>
-                                <span class="font-display font-bold text-lg text-white">Combo Carne</span>
-                                <p class="text-sm text-stone-300">Servido directamente de la parrilla</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- ===== CONTACTO / FOOTER ===== -->
-    <footer id="contacto" class="relative border-t border-stone-800/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-                <!-- Brand -->
-                <div class="sm:col-span-2 lg:col-span-1">
-                    <a href="#inicio" class="flex items-center gap-2.5 mb-4">
-                    <img src="img/logo.jpg" alt="Pollos Tavos - Logo" class="h-20 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
-                        <div>
-                            <span class="font-display font-bold text-lg text-white-50 leading-none block">Pollos Tavo's</span>
-                            <span class="text-[10px] text-white-500 font-medium tracking-wider uppercase">Est. 2001</span>
-                        </div>
-                    </a>
-                    <p class="text-sm text-white-500 leading-relaxed mb-6 max-w-xs">
-                        Pollos y carnes asadas, ricos y sabrosos.
-                    </p>
-                    <!-- Social -->
-                    <div class="flex items-center gap-3">
-                        <a href="https://www.facebook.com/profile.php?id=61553563559793" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-blue-500 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all" aria-label="Facebook" target="_blank">
-                            <span class="iconify" data-icon="mdi:facebook" data-width="20"></span>
-                        </a>
-                        <a href="https://www.instagram.com/pollostavosoficial/" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all" aria-label="Instagram" target="_blank">
-                            <span class="iconify" data-icon="mdi:instagram" data-width="20"></span>
-                        </a>
-                        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero realizar un Pedido\'s'); return false;" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-white-400 hover:text-wa-500 hover:border-wa-500/30 hover:bg-wa-500/10 transition-all" aria-label="WhatsApp">
-                            <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Horario -->
-                <div>
-                    <h4 class="font-display font-semibold text-white-200 mb-4 text-sm uppercase tracking-wider">Horario</h4>
-                    <ul class="space-y-3 text-sm text-white-500">
-                        <li class="flex justify-between"><span>Lunes - Viernes</span><span class="text-white-300">12PM - 6PM</span></li>
-                        <li class="flex justify-between"><span>Sábado</span><span class="text-white-300">12PM - 6PM</span></li>
-                        <li class="flex justify-between"><span>Domingo</span><span class="text-white-300">12PM - 6PM</span></li>
-                    </ul>
-                </div>
+    <!-- ============ COMPLEMENTOS ============ -->
+    <section class="section" id="complementos">
+      <div class="container">
+        <h2 class="section-title">Complementos</h2>
+        <p class="section-tag">Lo que hace que tu pedido quede completo.</p>
 
-                <!-- Links -->
-                <div>
-                    <h4 class="font-display font-semibold text-white-200 mb-4 text-sm uppercase tracking-wider">Navegación</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#inicio" class="text-white-500 hover:text-stone-500 transition-colors">Inicio</a></li>
-                        <li><a href="#menu" class="text-white-500 hover:text-stone-500 transition-colors">Menú</a></li>
-                        <!--<li><a href="#sabores" class="text-stone-500 hover:text-brand-500 transition-colors">Sabores</a></li>-->
-                        <li><a href="#paquetes" class="text-white-500 hover:text-stone-500 transition-colors">Paquetes</a></li>
-                    </ul>
-                </div>
+        <div class="comp-grid">
+          <div class="comp-card reveal">
+            <h3>Salchichas</h3>
+            <ul>
+              <li class="comp-item"><span class="comp-name">1 salchicha</span><span class="menu-price">$15</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: 1 Salchicha — $15. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">3 salchichas</span><span class="menu-price">$35</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: 3 Salchichas — $35. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+            </ul>
+          </div>
 
-                <!-- Contacto -->
-                <div>
-                    <h4 class="font-display font-semibold text-white-200 mb-4 text-sm uppercase tracking-wider">Contacto</h4>
-                    <ul class="space-y-3 text-sm text-white-500">
-                        <li class="flex items-center gap-2">
-                            <span class="iconify text-brand-500 flex-shrink-0" data-icon="mdi:whatsapp" data-width="16"></span>
-                            <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero información'); return false;" class="hover:text-stone-500 transition-colors">WhatsApp</a>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="iconify text-brand-500 flex-shrink-0" data-icon="mdi:map-marker" data-width="16"></span>
-                            <span>Visítanos: Hacienda la palma 101A Col. Rincon de la Hacienda, Guadalupe, Mexico</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="iconify text-white-500 flex-shrink-0" data-icon="mdi:motorbike" data-width="16"></span>
-                            <span>Tel: 81 1273 5442</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          <div class="comp-card reveal" style="--d:.08s">
+            <h3>Salchichas preparadas</h3>
+            <ul>
+              <li class="comp-item"><span class="comp-name">1 salchicha preparada</span><span class="menu-price">$25</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: 1 Salchicha preparada — $25. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">3 salchichas preparadas</span><span class="menu-price">$65</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: 3 Salchichas preparadas — $65. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+            </ul>
+          </div>
 
-            <!-- Bottom -->
-            <div class="mt-16 pt-8 border-t border-stone-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-white-600">© 2026 Pollos Tavo's. Todos los derechos reservados. Est. 2001</p>
-                <p class="text-xs text-white-700">Diseñado con 🍗 y mucho sabor</p>
-            </div>
+          <div class="comp-card reveal" style="--d:.16s">
+            <h3>Otros complementos</h3>
+            <ul>
+              <li class="comp-item"><span class="comp-name">Totopos</span><span class="menu-price">$25</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: Totopos — $25. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">1 chile preparado</span><span class="menu-price">$25</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: 1 Chile preparado — $25. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">3 chiles preparados</span><span class="menu-price">$60</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: 3 Chiles preparados — $60. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">Cebolla</span><span class="menu-price">$10</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: Cebolla — $10. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">Chile toreado</span><span class="menu-price">$5</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: Chile toreado — $5. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+              <li class="comp-item"><span class="comp-name">Coca-Cola 1.75 L</span><span class="menu-price">$35</span>
+                <!--<a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero agregar a mi pedido: Coca-Cola 1.75 L — $35. ¿Me lo pueden confirmar?">Agregar</a></li>-->
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- ===== FLOATING WHATSAPP ===== -->
-    <div class="wa-float">
-        <div class="wa-float-tooltip">¡Pide tu pollo aquí! 🍗</div>
-        <button onclick="pedirWhatsApp('¡Hola Pollos Tavo\'s! 🍗 Quiero hacer un pedido')" class="wa-float-btn" aria-label="Pedir por WhatsApp">
-            <span class="iconify text-white" data-icon="mdi:whatsapp" data-width="32"></span>
-        </button>
+    <!-- ============ TODOS INCLUYEN ============ -->
+    <section class="section incluyen" id="incluyen">
+      <div class="container">
+        <h2 class="section-title">Todo el sabor en cada pedido</h2>
+        <div class="incluyen-grid">
+          <div class="incluyen-item reveal"><span>🌮</span>Tortillas</div>
+          <div class="incluyen-item reveal" style="--d:.06s"><span>🧅</span>Cebolla asada</div>
+          <div class="incluyen-item reveal" style="--d:.12s"><span>🌶️</span>Chiles toreados</div>
+          <div class="incluyen-item reveal" style="--d:.18s"><span>🍋</span>Limones</div>
+          <div class="incluyen-item reveal" style="--d:.24s"><span>🥫</span>Salsas</div>
+        </div>
+        <p class="incluyen-text">Todos nuestros pollos incluyen tortilla, cebolla asada, chile toreado, limones y salsa.</p>
+      </div>
+    </section>
+
+    <!-- ============ POR QUÉ ELEGIRNOS ============ -->
+    <section class="section" id="porque">
+      <div class="container">
+        <h2 class="section-title">¿Por qué elegir Pollos Tavo's?</h2>
+        <div class="porque-grid">
+          <article class="porque-card reveal"><div class="porque-icon">🔥</div><h3>Sabor a la parrilla</h3><p>Pollos y carnes preparados con ese auténtico sabor de asador.</p></article>
+          <article class="porque-card reveal" style="--d:.08s"><div class="porque-icon">🍗</div><h3>Productos de calidad</h3><p>Ingredientes seleccionados para ofrecer una excelente experiencia.</p></article>
+          <article class="porque-card reveal" style="--d:.16s"><div class="porque-icon">💰</div><h3>Buen precio</h3><p>Opciones individuales y paquetes para compartir.</p></article>
+          <article class="porque-card reveal" style="--d:.24s"><div class="porque-icon">📲</div><h3>Pedido fácil</h3><p>Realiza tu pedido rápidamente por WhatsApp.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PEDIDO RÁPIDO ============ -->
+    <section class="pedido" id="pedido">
+      <div class="pedido"><img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's" loading="lazy"></div>
+      <div class="container pedido-inner reveal">
+        <h2 class="pedido-title">¿Se te antojó?</h2>
+        <p class="pedido-text">Ordena fácil, rápido y disfruta de nuestros pollos y carnes asadas.</p>
+        <a class="btn btn-big" href="https://wa.me/528112735442"
+           data-wa="Hola Pollos Tavo's 👋 Quiero realizar un pedido. ¿Me pueden compartir información?">
+          <svg class="icon"><use href="#icon-wa"/></svg> Ordenar por WhatsApp
+        </a>
+        <p class="pedido-tel"><svg class="icon"><use href="#icon-wa"/></svg> 811 273 5442</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contacto-grid">
+          <article class="contacto-card reveal">
+            <div class="contacto-icon wa">📲</div>
+            <h3>WhatsApp</h3>
+            <p class="contacto-dato">811 273 5442</p>
+            <a class="btn btn-wa" href="https://wa.me/528112735442"
+               data-wa="Hola Pollos Tavo's 👋 Quiero información. ¡Gracias!">Enviar WhatsApp</a>
+          </article>
+          <article class="contacto-card reveal" style="--d:.08s">
+            <div class="contacto-icon hora">🕛</div>
+            <h3>Horario</h3>
+            <p class="contacto-dato">Lunes a Domingo<br>12:00 PM – 6:00 PM</p>
+          </article>
+          <article class="contacto-card reveal" style="--d:.16s">
+            <div class="contacto-icon pago">💳</div>
+            <h3>Métodos de pago</h3>
+            <div class="pago-chips">
+              <span class="pago-chip">💳 Tarjetas de crédito</span>
+              <span class="pago-chip">💳 Tarjetas de débito</span>
+              <span class="pago-chip">🏦 Transferencias</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UBICACIÓN ============ -->
+    <!--<section class="section" id="ubicacion">
+      <div class="container ubicacion-grid">
+        <div class="ubicacion-info reveal">
+          <h2 class="section-title left">Encuéntranos</h2>
+          <!-- ======================================================================
+               DIRECCION_DEL_NEGOCIO — Edita también CONFIG.direccion en js/script.js
+               ====================================================================== 
+          <address class="direccion" id="direccion-text">Dirección por confirmar — muy pronto.</address>
+          <p class="ubicacion-ref">Mientras tanto, pide por WhatsApp y te compartimos las indicaciones para llegar.</p>
+          <a class="btn btn-yellow" id="btn-llegar" href="#">📍 Cómo llegar</a>
+        </div>
+        <div class="mapa reveal" style="--d:.1s">
+          <!-- Cuando exista la dirección, pega aquí el iframe de Google Maps:
+          <iframe src="https://www.google.com/maps/embed?pb=..." title="Mapa de Pollos Tavo's" loading="lazy" allowfullscreen></iframe>
+          <div class="mapa-placeholder">📍<p>Aquí irá nuestro mapa</p></div>
+        </div>-->
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's" loading="lazy">
+        <p class="footer-slogan">¡Ricos y Sabrosos!</p>
+        <div class="social">
+          <!-- INSTAGRAM_URL: editar en js/script.js (CONFIG.instagram) -->
+          <a href="#" id="ig-link" aria-label="Instagram de Pollos Tavo's"><svg class="icon"><use href="#icon-ig"/></svg></a>
+          <!-- FACEBOOK_URL: editar en js/script.js (CONFIG.facebook) -->
+          <a href="#" id="fb-link" aria-label="Facebook de Pollos Tavo's"><svg class="icon"><use href="#icon-fb"/></svg></a>
+          <a href="https://wa.me/528112735442" target="_blank" rel="noopener" aria-label="WhatsApp de Pollos Tavo's"><svg class="icon"><use href="#icon-wa"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Enlaces del sitio">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#promociones">Promociones</a></li>
+          <li><a href="#paquetes">Paquetes</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#complementos">Complementos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>WhatsApp: <strong>811 273 5442</strong></li>
+          <li>Lunes a Domingo</li>
+          <li>12:00 PM – 6:00 PM</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Métodos de pago</h4>
+        <ul>
+          <li>💳 Tarjetas de crédito y débito</li>
+          <li>🏦 Transferencias</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        // ========================================
-        // CONFIGURACIÓN - CAMBIA ESTE NÚMERO
-        // ========================================
-        const WHATSAPP_NUMBER = '528112735442'; // ← Cambia por el número real con código de país (ej: 18091234567)
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Pollos Tavo's. Todos los derechos reservados.</p>
+        <p>Precios sujetos a cambios sin previo aviso.</p>
+      </div>
+    </div>
+  </footer>
 
-        function pedirWhatsApp(mensaje) {
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
-        }
+  <!-- ============ FLOTANTES ============ -->
+  <a class="wa-float" href="https://wa.me/528112735442" aria-label="Pedir por WhatsApp"
+     data-wa="Hola, quiero realizar un pedido en Pollos Tavo's. ¿Me pueden compartir información?">
+    <svg class="icon"><use href="#icon-wa"/></svg>
+  </a>
+  <button id="volver-arriba" aria-label="Volver arriba">↑</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-        // ========================================
-        // NAVBAR SCROLL EFFECT
-        // ========================================
-        const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 50) {
-                navbar.classList.add('glass');
-                navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-            } else {
-                navbar.classList.remove('glass');
-                navbar.style.borderBottom = 'none';
-            }
-            lastScroll = currentScroll;
-        }, { passive: true });
-
-        // ========================================
-        // MOBILE MENU
-        // ========================================
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let menuOpen = false;
-
-        menuToggle.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            if (menuOpen) {
-                mobileMenu.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            } else {
-                closeMobileMenu();
-            }
-        });
-
-        function closeMobileMenu() {
-            menuOpen = false;
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        // ========================================
-        // SCROLL REVEAL (Intersection Observer)
-        // ========================================
-        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Apply delay from style attribute if exists
-                    const delay = entry.target.style.transitionDelay || '0ms';
-                    entry.target.style.transitionDelay = delay;
-                    entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -60px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // ========================================
-        // ACTIVE NAV LINK TRACKING
-        // ========================================
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, {
-            threshold: 0.3,
-            rootMargin: '-80px 0px -50% 0px'
-        });
-
-        sections.forEach(section => navObserver.observe(section));
-
-        // ========================================
-        // SMOOTH SCROLL FOR ANCHOR LINKS
-        // ========================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Pollos Tavo's",
-        "servesCuisine": ["Pollo asado", "Carnes asadas", "Comida latina"],
-        "foundingDate": "2007",
-        "description": "El mejor pollo asado del town. Pollos y carnes asadas ricas y sabrosas desde 2007.",
-        "priceRange": "$$",
-        "hasMenu": {
-            "@type": "Menu",
-            "hasMenuSection": [
-                {
-                    "@type": "MenuSection",
-                    "name": "Paquetes",
-                    "hasMenuItem": [
-                        { "@type": "MenuItem", "name": "Paq. Individual", "offers": { "@type": "Offer", "price": "100", "priceCurrency": "COP" } },
-                        { "@type": "MenuItem", "name": "Paq. Alcance", "offers": { "@type": "Offer", "price": "200", "priceCurrency": "COP" } },
-                        { "@type": "MenuItem", "name": "Paq. Compartas", "offers": { "@type": "Offer", "price": "290", "priceCurrency": "COP" } },
-                        { "@type": "MenuItem", "name": "Paq. Llenes", "offers": { "@type": "Offer", "price": "480", "priceCurrency": "COP" } }
-                    ]
-                }
-            ]
-        }
-    }
-    </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
