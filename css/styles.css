@@ -63,6 +63,27 @@ ul { list-style: none; }
 }
 .skip-link:focus { left: 0; }
 
+/* Marquee */
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0C0A09; }
+        ::-webkit-scrollbar-thumb { background: #44403C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #57534E; }
+
+        /* Animations */
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+        @keyframes steam { 0% { opacity: 0; transform: translateY(0) scaleX(1); } 50% { opacity: 0.4; } 100% { opacity: 0; transform: translateY(-80px) scaleX(1.5); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
 /* ---------- Títulos de sección ---------- */
 .section-title {
   font-family: var(--font-title);
@@ -200,12 +221,12 @@ ul { list-style: none; }
 }
 .promo-card::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, .08) 0 14px, transparent 14px 28px);
+  /*background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, .08) 0 14px, transparent 14px 28px);*/
 }
 .promo-card:hover { transform: translateY(-8px); box-shadow: 0 26px 48px rgba(0, 0, 0, .55); }
 
 .promo-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
-.promo-head h3 { font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase; font-size: 1.1rem; text-shadow: 2px 2px 0 rgba(0, 0, 0, .5); }
+.promo-head h3 { font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase; font-size: 2.1rem; text-shadow: 2px 2px 0 rgba(0, 0, 0, .5); }
 .promo-price {
   font-family: var(--font-title); font-size: 1.5rem; color: #fff;
   background: rgba(0, 0, 0, .3); padding: .1em .5em; border-radius: 12px; text-shadow: 2px 2px 0 #000;
