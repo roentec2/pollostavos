@@ -95,7 +95,7 @@ ul { list-style: none; }
   text-shadow: 3px 3px 0 var(--rojo), 6px 6px 0 rgba(0, 0, 0, .35);
 }
 .section-title.left { text-align: left; }
-.section-tag { text-align: center; margin-top: 12px; font-weight: 600; color: #cbb69f; }
+.section-tag { text-align: center; margin-top: 15px; font-weight: 600; color: var(--blanco); }
 
 /* ---------- Botones ---------- */
 .btn {
