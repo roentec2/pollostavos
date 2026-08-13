@@ -24,8 +24,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
   <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Fredoka', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C' },
+                        gold: { 400: '#FBBF24', 500: '#F59E0B' },
+                        wa: { 500: '#25D366', 600: '#128C7E' },
+                    }
+                }
+            }
+        }
+    </script>
 
   <!-- ============ DATOS ESTRUCTURADOS ============ -->
   <script type="application/ld+json">
@@ -58,6 +79,7 @@
       <a href="#inicio" class="logo" aria-label="Pollos Tavo's — Ir al inicio">
         <img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's con su mascota, el pollo que da pulgar arriba" class="logo-img">
       </a>
+      <div class="footer-slogan">¡Ricos y Sabrosos!</div>
 
       <nav class="nav" id="nav-principal" aria-label="Navegación principal">
         <ul>
@@ -113,7 +135,7 @@
 
         <div class="promo-grid">
           <article class="promo-card reveal">
-            <header class="promo-head"><h3>Promo Miercoles</h3><span class="promo-price">$210</span></header>
+            <header class="promo-head"><h3>Miercoles</h3><span class="promo-price">$210</span></header>
             <ul class="promo-list">
               <li>1 pollo y !/2</li>
               <li>Tortillas</li>
@@ -126,7 +148,7 @@
           </article>
           
           <article class="promo-card reveal" style="--d:.24s">
-            <header class="promo-head"><h3>Promo Mundialista</h3><span class="promo-price">$249</span></header>
+            <header class="promo-head"><h3>Mundialista</h3><span class="promo-price">$249</span></header>
             <ul class="promo-list">
               <li>1/2 Pollo</li>
               <li>1/2 kg de carne</li>
@@ -162,6 +184,87 @@
             <a class="btn btn-yellow" href="https://wa.me/528112735442"
                data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
           </article>-->
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== NOSOTROS ===== -->
+    <section class="pedido">
+        <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image -->
+                <div class="reveal-left">
+                    <div class="relative">
+                        <div class="porque-card">
+                            <img src="img/logo.jpg" alt="Pollos Tavo's logo y señal">
+                        </div>
+                        <!-- Floating badge 
+                        <div class="absolute -bottom-4 -right-4 sm:bottom-4 sm:right-4 glass rounded-2xl p-4 anim-float shadow-xl">
+                            <div class="text-center">
+                                <span class="font-display font-bold text-3xl text-gradient block">17+</span>
+                                <span class="text-[11px] text-stone-500 font-medium uppercase tracking-wider">Años</span>
+                            </div>
+                        </div>-->
+                        <!-- Decorative dot -->
+                        <div class="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-brand-500/30 border border-brand-500/40"></div>
+                    </div>
+                        
+                        <div class="flex items-center gap-3">
+                        <a href="https://www.facebook.com/profile.php?id=61553563559793" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-blue-500 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all" aria-label="Facebook" target="_blank">
+                            <span class="iconify" data-icon="mdi:facebook" data-width="20"></span>
+                        </a>
+                        <a href="https://www.instagram.com/pollostavosoficial/" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-stone-400 hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all" aria-label="Instagram" target="_blank">
+                            <span class="iconify" data-icon="mdi:instagram" data-width="20"></span>
+                        </a>
+                        <a href="https://wa.me/528112735442" onclick="pedirWhatsApp('Hola, quiero realizar un Pedido\'s'); return false;" class="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700/50 flex items-center justify-center text-white-400 hover:text-wa-500 hover:border-wa-500/30 hover:bg-wa-500/10 transition-all" aria-label="WhatsApp">
+                            <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                        </a>
+                        </div>
+                    
+                </div>
+
+                <!-- Content -->
+                <div class="reveal-right">
+                    <span class="inline-block text-brand-500 font-display font-semibold text-sm tracking-wider uppercase mb-4">Nuestra Historia</span>
+                    <h2 class="section-title">
+                        Sabor, Calidad y<br>Buen Precio
+                    </h2>
+                    <div class="section-divider mb-8" style="margin:0; margin-bottom: 2rem;"></div>
+                    <p class="text-white-400 leading-relaxed mb-6">
+                        Desde 2001, en <strong class="text-white-400">Pollos Tavo's</strong> hemos perfeccionado el arte del pollo asado. Cada pieza se prepara con nuestra receta familiar, cocinada lentamente sobre fuego de carbón para lograr esa textura jugosa por dentro y delicioso por fuera.
+                    </p>
+                    <p class="text-white-400 leading-relaxed mb-10">
+                        Nuestro compromiso es simple: ingredientes frescos, sazón auténtico y el calor de una comida hecha con amor. Por eso somos <strong class="text-white-400">el mejor pollo de la Zona!.</strong>.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div >
+                        <article class="porque-card reveal" style="--d:.24s"><h3>17+</h3><p>Años de Tradicion</p></article>
+                        </div>
+                        <div >
+                        <article class="porque-card reveal" style="--d:.24s"><h3>Nuestro</h3><p>Sabor Especial</p></article>
+                        </div>
+                        <div >
+                        <article class="porque-card reveal" style="--d:.24s"><h3>100%</h3><p>Frresco Diario</p></article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+            <!-- ============ POR QUÉ ELEGIRNOS ============ -->
+    <section class="section" id="porque">
+      <div class="container">
+        <h2 class="section-title">¿Por qué elegir Pollos Tavo's?</h2>
+        <div class="porque-grid">
+          <article class="porque-card reveal"><div class="porque-icon">🔥</div><h3>Sabor a la parrilla</h3><p>Pollos y carnes preparados con ese auténtico sabor de asador.</p></article>
+          <article class="porque-card reveal" style="--d:.08s"><div class="porque-icon">🍗</div><h3>Productos de calidad</h3><p>Ingredientes seleccionados para ofrecer una excelente experiencia.</p></article>
+          <article class="porque-card reveal" style="--d:.16s"><div class="porque-icon">💰</div><h3>Buen precio</h3><p>Opciones individuales y paquetes para compartir.</p></article>
+          <article class="porque-card reveal" style="--d:.24s"><div class="porque-icon">📲</div><h3>Pedido fácil</h3><p>Realiza tu pedido rápidamente por WhatsApp.</p></article>
         </div>
       </div>
     </section>
@@ -214,8 +317,54 @@
         <p class="menu-legal">*Precios sujetos a cambios sin previo aviso · Actualización de precios 2026</p>
       </div>
     </section>
-    
-    <!-- ============ PAQUETES ============ -->
+
+<!-- ===== MARQUEE ===== -->
+    <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
+        <div class="marquee-track">
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap">
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🥩 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🧅 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
+                <span>🎉 ACEPTAMOS TRANSFERECIAS</span><span class="text-brand-600">✦</span>
+                <span>🥫 SALSAS</span><span class="text-brand-600">✦</span>
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🥩 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 SALSAS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🌮 TORTILLAS</span><span class="text-brand-600">✦</span>
+                <span>🎉 ACEPTAMOS TRANSFERECIAS</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+            </div>
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap" aria-hidden="true">
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🥩 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🥔 TOTOPOS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🧅 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
+                <span>🎉 DESDE 2001</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+                <span>🍗 POLLO ASADO</span><span class="text-brand-600">✦</span>
+                <span>🥩 CARNES ASADAS</span><span class="text-brand-600">✦</span>
+                <span>🌮 TORTILLAS</span><span class="text-brand-600">✦</span>
+                <span>🍚 ARROZ</span><span class="text-brand-600">✦</span>
+                <span>🌶️ CHILES TOREADOS</span><span class="text-brand-600">✦</span>
+                <span>🍋 LIMÓN</span><span class="text-brand-600">✦</span>
+                <span>🧅 CEBOLLA ASADA</span><span class="text-brand-600">✦</span>
+                <span>🥫 SALSAS</span><span class="text-brand-600">✦</span>
+                <span>💯 RICOS Y SABROSOS</span><span class="text-brand-600">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ PAQUETES 🥤🔥 ============ -->
     <section class="section" id="paquetes">
       <div class="container">
         <h2 class="section-title">Paquetes para compartir</h2>
@@ -329,6 +478,28 @@
         </div>
       </div>
     </section>
+    
+            <!-- ===== MARQUEE ===== -->
+    <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
+        <div class="marquee-track">
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-2xl whitespace-nowrap">
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+            </div>
+            <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-2xl whitespace-nowrap" aria-hidden="true">
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+                <span>🍗 PROMOCION: Miércoles Pollo y Medio por $210</span><span class="text-brand-600">✦</span>
+            </div>
+        </div>
+    </div>
 
     <!-- ============ TODOS INCLUYEN ============ -->
     <section class="section incluyen" id="incluyen">
@@ -345,22 +516,8 @@
       </div>
     </section>
 
-    <!-- ============ POR QUÉ ELEGIRNOS ============ -->
-    <section class="section" id="porque">
-      <div class="container">
-        <h2 class="section-title">¿Por qué elegir Pollos Tavo's?</h2>
-        <div class="porque-grid">
-          <article class="porque-card reveal"><div class="porque-icon">🔥</div><h3>Sabor a la parrilla</h3><p>Pollos y carnes preparados con ese auténtico sabor de asador.</p></article>
-          <article class="porque-card reveal" style="--d:.08s"><div class="porque-icon">🍗</div><h3>Productos de calidad</h3><p>Ingredientes seleccionados para ofrecer una excelente experiencia.</p></article>
-          <article class="porque-card reveal" style="--d:.16s"><div class="porque-icon">💰</div><h3>Buen precio</h3><p>Opciones individuales y paquetes para compartir.</p></article>
-          <article class="porque-card reveal" style="--d:.24s"><div class="porque-icon">📲</div><h3>Pedido fácil</h3><p>Realiza tu pedido rápidamente por WhatsApp.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PEDIDO RÁPIDO ============ -->
+    <!-- ============ PEDIDO RÁPIDO ============ 
     <section class="pedido" id="pedido">
-      <div class="pedido"><img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's" loading="lazy"></div>
       <div class="container pedido-inner reveal">
         <h2 class="pedido-title">¿Se te antojó?</h2>
         <p class="pedido-text">Ordena fácil, rápido y disfruta de nuestros pollos y carnes asadas.</p>
@@ -370,11 +527,12 @@
         </a>
         <p class="pedido-tel"><svg class="icon"><use href="#icon-wa"/></svg> 811 273 5442</p>
       </div>
-    </section>
+    </section>-->
 
     <!-- ============ CONTACTO ============ -->
     <section class="section" id="contacto">
       <div class="container">
+        <h2 class="section-title">¿Se te antojó?</h2>
         <h2 class="section-title">Contáctanos</h2>
         <div class="contacto-grid">
           <article class="contacto-card reveal">
