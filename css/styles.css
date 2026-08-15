@@ -226,7 +226,7 @@ ul { list-style: none; }
 .promo-card:hover { transform: translateY(-8px); box-shadow: 0 26px 48px rgba(0, 0, 0, .55); }
 
 .promo-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
-.promo-head h3 { font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase; font-size: 2.1rem; text-shadow: 2px 2px 0 rgba(0, 0, 0, .5); }
+.promo-head h3 { font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase; font-size: 1.1rem; text-shadow: 2px 2px 0 rgba(0, 0, 0, .5); }
 .promo-price {
   font-family: var(--font-title); font-size: 1.5rem; color: #fff;
   background: rgba(0, 0, 0, .3); padding: .1em .5em; border-radius: 12px; text-shadow: 2px 2px 0 #000;
@@ -475,4 +475,43 @@ ul { list-style: none; }
     transition-duration: .01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Modalidad de entrega (domicilio / recoger) ---------- */
+.entrega-toggle { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 28px; }
+.entrega-label { font-weight: 800; color: #ffe9c9; letter-spacing: .4px; }
+.entrega-opts {
+  display: inline-flex; gap: 5px; padding: 5px;
+  background: var(--carbon-2); border: 1px solid rgba(255, 210, 63, .3); border-radius: 999px;
+}
+.entrega-btn {
+  border: 0; cursor: pointer; background: transparent; color: var(--texto);
+  font: 800 .85rem var(--font-body); padding: .6rem 1.1rem; border-radius: 999px;
+  transition: background .25s, color .25s, transform .15s;
+}
+.entrega-btn:active { transform: scale(.96); }
+.entrega-btn.active { background: var(--amarillo); color: #201409; box-shadow: 0 4px 12px rgba(0, 0, 0, .35); }
+
+/* ---------- Selector de cantidad (stepper) ---------- */
+.stepper {
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 235, 210, .2);
+  border-radius: 999px; padding: 3px 6px;
+}
+.step-btn {
+  width: 26px; height: 26px; border: 0; border-radius: 50%; cursor: pointer;
+  background: var(--rojo); color: #fff; font-weight: 800; font-size: 1rem; line-height: 1;
+  display: grid; place-items: center; transition: background .2s, color .2s, transform .15s;
+}
+.step-btn:hover { background: var(--amarillo); color: #201409; }
+.step-btn:active { transform: scale(.9); }
+.step-qty { min-width: 20px; text-align: center; font-weight: 800; color: #fff; }
+.menu-total { display: block; font: 700 .72rem var(--font-body); color: #cbb69f; }
+
+/* ---------- Responsive para el stepper en móviles ---------- */
+@media (max-width: 600px) {
+  .menu-item { flex-wrap: wrap; }
+  .menu-name { width: 100%; }
+  .menu-dots { display: none; }
+  .menu-price { margin-right: auto; }
 }
