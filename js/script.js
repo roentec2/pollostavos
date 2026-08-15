@@ -2,24 +2,86 @@
    POLLOS TAVO'S — script.js (JavaScript vanilla, sin librerías)
    ========================================================== */
 
-/* ---------------- CONFIGURACIÓN EDITABLE ----------------
-   DIRECCION_DEL_NEGOCIO -> CONFIG.direccion
-   INSTAGRAM_URL         -> CONFIG.instagram
-   FACEBOOK_URL          -> CONFIG.facebook                */
 const CONFIG = {
   whatsapp: '528112735442',
-  direccion: '', // Ej. 'Av. Ejemplo 123, Col. Centro, Monterrey, N.L., C.P. 64000'
-  instagram: '', // Ej. 'https://instagram.com/pollostavos'
-  facebook: ''   // Ej. 'https://facebook.com/pollostavos'
+  direccion: '', // DIRECCION_DEL_NEGOCIO
+  instagram: '', // INSTAGRAM_URL
+  facebook: ''   // FACEBOOK_URL
 };
+
+/* Modalidades de entrega para los pedidos */
+const MODALIDADES = {
+  domicilio: '🛵 Entrega a domicilio',
+  recoger:   '🏪 Pasan por el pedido al local'
+};
+let modalidad = 'domicilio';
+
+const waLink = msg => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+
+/* Construye/actualiza los enlaces de WhatsApp:
+   - a[data-wa] sin pregunta  → mensaje tal cual (header, hero, complementos, flotante…)
+   - a[data-wa] con data-pregunta (promos y paquetes) → base + modalidad + pregunta
+   - .menu-item con stepper  → cantidad × producto + total + modalidad               */
+function actualizarPedidosWA() {
+  document.querySelectorAll('a[data-wa]').forEach(el => {
+    const base = el.dataset.wa;
+    const pregunta = el.dataset.pregunta;
+    el.href = pregunta
+      ? waLink(`${base}\n${MODALIDADES[modalidad]}\n${pregunta}`)
+      : waLink(base);
+    if (!el.classList.contains('wa-float')) { el.target = '_blank'; el.rel = 'noopener'; }
+  });
+
+  document.querySelectorAll('.menu-item[data-precio]').forEach(item => {
+    const qty    = parseInt(item.querySelector('.step-qty').textContent, 10) || 1;
+    const precio = parseInt(item.dataset.precio, 10);
+    const nombre = item.dataset.producto;
+    const total  = precio * qty;
+    const detalle = qty > 1
+      ? `${qty} × ${nombre} — $${precio} c/u\nTotal: $${total}`
+      : `${nombre} — $${precio}`;
+    const link = item.querySelector('.btn-mini');
+    if (link) {
+      link.href = waLink(
+        `Hola Pollos Tavo's 👋\nQuiero realizar el siguiente pedido:\n\n${detalle}\n\n${MODALIDADES[modalidad]}\n¿Me pueden confirmar disponibilidad y total?`
+      );
+      link.target = '_blank'; link.rel = 'noopener';
+    }
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Enlaces de WhatsApp con mensaje automático ---------- */
-  document.querySelectorAll('[data-wa]').forEach(el => {
-    el.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(el.dataset.wa)}`;
-    if (!el.classList.contains('wa-float')) { el.target = '_blank'; el.rel = 'noopener'; }
+  /* ---------- Selector de modalidad de entrega (sincronizado) ---------- */
+  document.querySelectorAll('.entrega-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalidad = btn.dataset.entrega;
+      document.querySelectorAll('.entrega-btn').forEach(b => {
+        const activo = b.dataset.entrega === modalidad;
+        b.classList.toggle('active', activo);
+        b.setAttribute('aria-pressed', String(activo));
+      });
+      actualizarPedidosWA();
+      toast(modalidad === 'domicilio' ? '🛵 Pedido con entrega a domicilio' : '🏪 Pasas por tu pedido al local');
+    });
   });
+
+  /* ---------- Selectores de cantidad en el menú ---------- */
+  document.querySelectorAll('.step-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item    = btn.closest('.menu-item');
+      const qtyEl   = item.querySelector('.step-qty');
+      const totalEl = item.querySelector('.menu-total');
+      let qty = (parseInt(qtyEl.textContent, 10) || 1) + parseInt(btn.dataset.step, 10);
+      qty = Math.min(20, Math.max(1, qty));
+      qtyEl.textContent = qty;
+      const precio = parseInt(item.dataset.precio, 10);
+      totalEl.textContent = qty > 1 ? `×${qty} = $${precio * qty}` : '';
+      actualizarPedidosWA();
+    });
+  });
+
+  actualizarPedidosWA(); // inicial
 
   /* ---------- Redes sociales (variables editables) ---------- */
   const redes = [
