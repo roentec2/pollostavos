@@ -127,117 +127,156 @@
       </div>
     </section>
 
-    <!-- ============ PROMOCIONES ============ -->
-    <section class="section" id="promociones">
-      <div class="container">
-        <h2 class="section-title">Promociones</h2>
-        <p class="section-tag">Paquetes con todo el sabor del asador, a precio de Tavo's.</p>
+<!-- ============ PROMOCIONES ============ -->
+<section class="section" id="promociones">
+  <div class="container">
+    <h2 class="section-title">Promociones</h2>
+    <p class="section-tag">Paquetes con todo el sabor del asador, a precio de amigo.</p>
 
-        <div class="promo-grid">
-          <article class="promo-card reveal">
-            <header class="promo-head"><h3>Miercoles</h3><span class="promo-price">$210</span></header>
-            <ul class="promo-list">
-              <li>1 pollo y !/2</li>
-              <li>Tortillas</li>
-              <li>Cebola Asada</li>
-              <li>Chile Toreado</li>
-              <li>Salsas</li>
-             </ul>
-            <a class="btn btn-yellow" href="https://wa.me/528112735442"
-               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Promo Miercoles — $210. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
-          </article>
-          
-          <article class="promo-card reveal" style="--d:.24s">
-            <header class="promo-head"><h3>Mundialista</h3><span class="promo-price">$249</span></header>
-            <ul class="promo-list">
-              <li>1/2 Pollo</li>
-              <li>1/2 kg de carne</li>
-              <li>Tortillas</li>
-              <li>Cebolla Asada</li>
-              <li>Chile toreado</li>
-              <li>Limones</li>
-            </ul>
-            <a class="btn btn-yellow" href="https://wa.me/528112735442"
-               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Promo Mundialista — $249. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
-          </article>
-          
-            <article class="promo-card reveal" style="--d:.16s">
-            <header class="promo-head"><h3>Combo Pollo</h3><span class="promo-price">$215</span></header>
-            <ul class="promo-list">
-              <li>1 pollo</li>
-              <li>1 Coca Cola 1.75Lts</li>
-              <li>Tortillas</li>
-              <li>Cebolla Asada</li>
-              <li>Chile toreado</li>
-              <li>Limones</li>
-            </ul>
-            <a class="btn btn-yellow" href="https://wa.me/528112735442"
-               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Combo Pollo — $215. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
-          </article>
-
-          <!--<article class="promo-card reveal" style="--d:.08s">
-            <header class="promo-head"><h3>Paquete Individual</h3><span class="promo-price">$130</span></header>
-            <ul class="promo-list">
-              <li>1/2 pollo</li>
-              <li>3 salchichas</li>
-            </ul>
-            <a class="btn btn-yellow" href="https://wa.me/528112735442"
-               data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130. ¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
-          </article>-->
-        </div>
+    <!-- Selector de modalidad de entrega (sincronizado en las 3 secciones) -->
+    <div class="entrega-toggle reveal" role="group" aria-label="Modalidad de entrega">
+      <span class="entrega-label">¿Cómo quieres tu pedido?</span>
+      <div class="entrega-opts">
+        <button type="button" class="entrega-btn active" data-entrega="domicilio" aria-pressed="true">🛵 A domicilio</button>
+        <button type="button" class="entrega-btn" data-entrega="recoger" aria-pressed="false">🏪 Paso por él</button>
       </div>
+    </div>
+
+    <div class="promo-grid">
+      <article class="promo-card reveal">
+        <header class="promo-head"><h3>Paquete Llenes</h3><span class="promo-price">$535</span></header>
+        <ul class="promo-list">
+          <li>1 pollo</li><li>1 kg de carne</li><li>3 salchichas</li>
+          <li>2 salchichas preparadas</li><li>1 totopos</li>
+        </ul>
+        <a class="btn btn-yellow" href="https://wa.me/528112735442"
+           data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Llenes — $535."
+           data-pregunta="¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+      </article>
+
+      <article class="promo-card reveal" style="--d:.08s">
+        <header class="promo-head"><h3>Paquete Individual</h3><span class="promo-price">$130</span></header>
+        <ul class="promo-list"><li>1/2 pollo</li><li>3 salchichas</li></ul>
+        <a class="btn btn-yellow" href="https://wa.me/528112735442"
+           data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130."
+           data-pregunta="¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+      </article>
+
+      <article class="promo-card reveal" style="--d:.16s">
+        <header class="promo-head"><h3>Paquete Alcance</h3><span class="promo-price">$245</span></header>
+        <ul class="promo-list">
+          <li>1 pollo</li><li>3 salchichas</li><li>1 salchicha preparada</li><li>1 totopos</li>
+        </ul>
+        <a class="btn btn-yellow" href="https://wa.me/528112735442"
+           data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Alcance — $245."
+           data-pregunta="¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+      </article>
+
+      <article class="promo-card reveal" style="--d:.24s">
+        <header class="promo-head"><h3>Paquete Compartas</h3><span class="promo-price">$340</span></header>
+        <ul class="promo-list"><li>1 pollo</li><li>1/2 kg de carne</li><li>2 salchichas</li></ul>
+        <a class="btn btn-yellow" href="https://wa.me/528112735442"
+           data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Compartas — $340."
+           data-pregunta="¿Me pueden confirmar mi pedido?">Pedir esta promoción</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENÚ ============ -->
+<section class="section" id="menu">
+  <div class="container">
+    <h2 class="section-title">Nuestro menú</h2>
+    <p class="section-tag">Sabor auténtico de asador, precios que sí alcanzan.</p>
+
+    <div class="entrega-toggle reveal" role="group" aria-label="Modalidad de entrega">
+      <span class="entrega-label">¿Cómo quieres tu pedido?</span>
+      <div class="entrega-opts">
+        <button type="button" class="entrega-btn active" data-entrega="domicilio" aria-pressed="true">🛵 A domicilio</button>
+        <button type="button" class="entrega-btn" data-entrega="recoger" aria-pressed="false">🏪 Paso por él</button>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-cat reveal">
+        <h3>🍗 Pollos</h3>
+        <ul class="menu-list">
+          <li class="menu-item" data-producto="1 Pollo" data-precio="185">
+            <span class="menu-name">1 pollo</span><span class="menu-dots"></span>
+            <span class="menu-price">$185<span class="menu-total"></span></span>
+            <div class="stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Disminuir cantidad de 1 pollo">−</button>
+              <span class="step-qty">1</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="Aumentar cantidad de 1 pollo">+</button>
+            </div>
+            <a class="btn-mini" href="https://wa.me/528112735442">Pedir</a>
+          </li>
+          <li class="menu-item" data-producto="1/2 Pollo" data-precio="100">
+            <span class="menu-name">1/2 pollo</span><span class="menu-dots"></span>
+            <span class="menu-price">$100<span class="menu-total"></span></span>
+            <div class="stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Disminuir cantidad de medio pollo">−</button>
+              <span class="step-qty">1</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="Aumentar cantidad de medio pollo">+</button>
+            </div>
+            <a class="btn-mini" href="https://wa.me/528112735442">Pedir</a>
+          </li>
+          <li class="menu-item" data-producto="1 1/2 Pollos" data-precio="250">
+            <span class="menu-name">1 1/2 pollos</span><span class="menu-dots"></span>
+            <span class="menu-price">$250<span class="menu-total"></span></span>
+            <div class="stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Disminuir cantidad de pollo y medio">−</button>
+              <span class="step-qty">1</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="Aumentar cantidad de pollo y medio">+</button>
+            </div>
+            <a class="btn-mini" href="https://wa.me/528112735442">Pedir</a>
+          </li>
+          <li class="menu-item" data-producto="2 Pollos" data-precio="340">
+            <span class="menu-name">2 pollos</span><span class="menu-dots"></span>
+            <span class="menu-price">$340<span class="menu-total"></span></span>
+            <div class="stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Disminuir cantidad de dos pollos">−</button>
+              <span class="step-qty">1</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="Aumentar cantidad de dos pollos">+</button>
+            </div>
+            <a class="btn-mini" href="https://wa.me/528112735442">Pedir</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu-cat reveal" style="--d:.1s">
+        <h3>🥩 Carne asada</h3>
+        <ul class="menu-list">
+          <li class="menu-item" data-producto="1/2 kg de carne" data-precio="165">
+            <span class="menu-name">1/2 kg de carne</span><span class="menu-dots"></span>
+            <span class="menu-price">$165<span class="menu-total"></span></span>
+            <div class="stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Disminuir cantidad de medio kilo de carne">−</button>
+              <span class="step-qty">1</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="Aumentar cantidad de medio kilo de carne">+</button>
+            </div>
+            <a class="btn-mini" href="https://wa.me/528112735442">Pedir</a>
+          </li>
+          <li class="menu-item" data-producto="1 kg de carne" data-precio="310">
+            <span class="menu-name">1 kg de carne</span><span class="menu-dots"></span>
+            <span class="menu-price">$310<span class="menu-total"></span></span>
+            <div class="stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Disminuir cantidad de un kilo de carne">−</button>
+              <span class="step-qty">1</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="Aumentar cantidad de un kilo de carne">+</button>
+            </div>
+            <a class="btn-mini" href="https://wa.me/528112735442">Pedir</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="menu-note">🌮 Todos incluyen tortilla, cebolla asada, chile toreado, limones y salsa.</p>
+    <p class="menu-legal">*Precios sujetos a cambios sin previo aviso · Actualización de precios 2026</p>
+  </div>
     </section>
 
-    <!-- ============ MENÚ ============ -->
-    <section class="section" id="menu">
-      <div class="container">
-        <h2 class="section-title">Nuestro menú</h2>
-        <p class="section-tag">Sabor auténtico de asador, agrega tambien complementos a tu pedido!.</p>
-
-        <div class="menu-grid">
-          <div class="menu-cat reveal">
-            <h3>🍗 Pollos</h3>
-            <ul class="menu-list">
-              <li class="menu-item">
-                <span class="menu-name">1 pollo</span><span class="menu-dots"></span><span class="menu-price">$185</span>
-                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1 Pollo — $185. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
-              </li>
-              <li class="menu-item">
-                <span class="menu-name">1/2 pollo</span><span class="menu-dots"></span><span class="menu-price">$100</span>
-                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1/2 Pollo — $100. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
-              </li>
-              <li class="menu-item">
-                <span class="menu-name">1 1/2 pollos</span><span class="menu-dots"></span><span class="menu-price">$250</span>
-                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1 1/2 Pollos — $250. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
-              </li>
-              <li class="menu-item">
-                <span class="menu-name">2 pollos</span><span class="menu-dots"></span><span class="menu-price">$340</span>
-                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 2 Pollos — $340. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="menu-cat reveal" style="--d:.1s">
-            <h3>🥩 Carne asada</h3>
-            <ul class="menu-list">
-              <li class="menu-item">
-                <span class="menu-name">1/2 kg de carne</span><span class="menu-dots"></span><span class="menu-price">$165</span>
-                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1/2 kg de carne — $165. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
-              </li>
-              <li class="menu-item">
-                <span class="menu-name">1 kg de carne</span><span class="menu-dots"></span><span class="menu-price">$310</span>
-                <a class="btn-mini" href="https://wa.me/528112735442" data-wa="Hola Pollos Tavo's 👋 Quiero realizar el siguiente pedido: 1 kg de carne — $310. ¿Me pueden confirmar disponibilidad y total?">Pedir</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="menu-note">🌮 Todos incluyen tortilla, cebolla asada, chile toreado, limones y salsa.</p>
-        <p class="menu-legal">*Precios sujetos a cambios sin previo aviso · Actualización de precios 2026</p>
-      </div>
-    </section>
-
-<!-- ===== MARQUEE ===== -->
+<!-- ===== MARQUEE =====--> 
     <div class="relative py-5 border-y border-stone-800/50 bg-stone-900/50 overflow-hidden">
         <div class="marquee-track">
             <div class="flex items-center gap-8 px-4 text-white-600 font-display font-medium text-sm whitespace-nowrap">
@@ -283,71 +322,83 @@
         </div>
     </div>
 
-    <!-- ============ PAQUETES 🥤🔥 ============ -->
-    <section class="section" id="paquetes">
-      <div class="container">
-        <h2 class="section-title">Paquetes para compartir</h2>
-        <p class="section-tag">Directo de la parrilla a tu mesa, con todo incluido.</p>
+<!-- ============ PAQUETES ============ -->
+<section class="section" id="paquetes">
+  <div class="container">
+    <h2 class="section-title">Paquetes para compartir</h2>
+    <p class="section-tag">Directo de la parrilla a tu mesa, con todo incluido.</p>
 
-        <div class="paq-grid">
-          <article class="paq-card reveal">
-            <div class="paq-media">
-              <img src="img/galeria1.jpg" loading="lazy" alt="Paquete familiar con pollo asado, carne, salchichas, tortillas y salsas">
-              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
-            </div>
-            <div class="paq-body">
-              <h3>Paquete Llenes</h3>
-              <p class="paq-price">$535 <small>MXN</small></p>
-              <p class="paq-desc">1 pollo, 1 kg de carne, 3 salchichas, 2 salchichas preparadas y 1 totopos.</p>
-              <a class="btn btn-yellow" href="https://wa.me/528112735442"
-                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Llenes — $535 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
-            </div>
-          </article>
-
-          <article class="paq-card reveal" style="--d:.24s">
-            <div class="paq-media">
-              <img src="img/galeria.jpg" loading="lazy" alt="Carne asada al carbón con pollo y salchichas para compartir">
-              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
-            </div>
-            <div class="paq-body">
-              <h3>Paquete Compartas</h3>
-              <p class="paq-price">$340 <small>MXN</small></p>
-              <p class="paq-desc">1 pollo, 1/2 kg de carne y 2 salchichas.</p>
-              <a class="btn btn-yellow" href="https://wa.me/528112735442"
-                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Compartas — $340 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
-            </div>
-          </article>
-
-         <article class="paq-card reveal" style="--d:.16s">
-            <div class="paq-media">
-              <img src="img/pollotavos.png" loading="lazy" alt="Pollo asado con salchichas al carbón, tortillas y salsas">
-              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
-            </div>
-            <div class="paq-body">
-              <h3>Paquete Alcance</h3>
-              <p class="paq-price">$245 <small>MXN</small></p>
-              <p class="paq-desc">1 pollo, 3 salchichas, 1 salchicha preparada y 1 totopos.</p>
-              <a class="btn btn-yellow" href="https://wa.me/528112735442"
-                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Alcance — $245 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
-            </div>
-          </article>
-
-          <article class="paq-card reveal" style="--d:.08s">
-            <div class="paq-media">
-              <img src="img/galeria1.jpg" loading="lazy" alt="Medio pollo asado dorado con cebolla asada, chiles y limones">
-              <span class="paq-sticker">¡Ricos y Sabrosos!</span>
-            </div>
-            <div class="paq-body">
-              <h3>Paquete Individual</h3>
-              <p class="paq-price">$130 <small>MXN</small></p>
-              <p class="paq-desc">1/2 pollo y 3 salchichas. El antojo perfecto para ti.</p>
-              <a class="btn btn-yellow" href="https://wa.me/528112735442"
-                 data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130 MXN. ¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
-            </div>
-          </article>
-        </div>
+    <div class="entrega-toggle reveal" role="group" aria-label="Modalidad de entrega">
+      <span class="entrega-label">¿Cómo quieres tu pedido?</span>
+      <div class="entrega-opts">
+        <button type="button" class="entrega-btn active" data-entrega="domicilio" aria-pressed="true">🛵 A domicilio</button>
+        <button type="button" class="entrega-btn" data-entrega="recoger" aria-pressed="false">🏪 Paso por él</button>
       </div>
-    </section>
+    </div>
+
+    <div class="paq-grid">
+      <article class="paq-card reveal">
+        <div class="paq-media">
+          <img src="img/galeria1.jpg" loading="lazy" alt="Paquete familiar con pollo asado, carne, salchichas, tortillas y salsas">
+          <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+        </div>
+        <div class="paq-body">
+          <h3>Paquete Llenes</h3>
+          <p class="paq-price">$535 <small>MXN</small></p>
+          <p class="paq-desc">1 pollo, 1 kg de carne, 3 salchichas, 2 salchichas preparadas y 1 totopos.</p>
+          <a class="btn btn-yellow" href="https://wa.me/528112735442"
+             data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Llenes — $535 MXN."
+             data-pregunta="¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+        </div>
+      </article>
+
+      <article class="paq-card reveal" style="--d:.08s">
+        <div class="paq-media">
+          <img src="img/galeria1.jpg" loading="lazy" alt="Medio pollo asado dorado con cebolla asada, chiles y limones">
+          <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+        </div>
+        <div class="paq-body">
+          <h3>Paquete Individual</h3>
+          <p class="paq-price">$130 <small>MXN</small></p>
+          <p class="paq-desc">1/2 pollo y 3 salchichas. El antojo perfecto para ti.</p>
+          <a class="btn btn-yellow" href="https://wa.me/528112735442"
+             data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Individual — $130 MXN."
+             data-pregunta="¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+        </div>
+      </article>
+
+      <article class="paq-card reveal" style="--d:.16s">
+        <div class="paq-media">
+          <img src="img/galeria1.jpg" loading="lazy" alt="Pollo asado con salchichas al carbón, tortillas y salsas">
+          <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+        </div>
+        <div class="paq-body">
+          <h3>Paquete Alcance</h3>
+          <p class="paq-price">$245 <small>MXN</small></p>
+          <p class="paq-desc">1 pollo, 3 salchichas, 1 salchicha preparada y 1 totopos.</p>
+          <a class="btn btn-yellow" href="https://wa.me/528112735442"
+             data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Alcance — $245 MXN."
+             data-pregunta="¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+        </div>
+      </article>
+
+      <article class="paq-card reveal" style="--d:.24s">
+        <div class="paq-media">
+          <img src="img/galeria.jpg" loading="lazy" alt="Carne asada al carbón con pollo y salchichas para compartir">
+          <span class="paq-sticker">¡Ricos y Sabrosos!</span>
+        </div>
+        <div class="paq-body">
+          <h3>Paquete Compartas</h3>
+          <p class="paq-price">$340 <small>MXN</small></p>
+          <p class="paq-desc">1 pollo, 1/2 kg de carne y 2 salchichas.</p>
+          <a class="btn btn-yellow" href="https://wa.me/528112735442"
+             data-wa="Hola Pollos Tavo's 👋 Quiero pedir: Paquete Compartas — $340 MXN."
+             data-pregunta="¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
     <!-- ============ COMPLEMENTOS ============ -->
     <section class="section" id="complementos">
