@@ -76,9 +76,19 @@
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
     <div class="container header-inner">
-      <a href="#inicio" class="logo" aria-label="Pollos Tavo's — Ir al inicio">
-        <img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's con su mascota, el pollo que da pulgar arriba" class="logo-img">
-      </a>
+  <div class="header-brand">
+    <a href="#inicio" class="logo" aria-label="Pollos Tavo's — Ir al inicio">
+      <img src="img/logo.jpg" alt="Logotipo de Pollos Tavo's con su mascota, el pollo que da pulgar arriba" class="logo-img">
+    </a>
+
+    <!-- Indicador compacto de estado (sin mascota) -->
+    <div class="estado-header" id="estado-header" aria-live="polite"
+         title="Horario: Lunes a Domingo, 12:00 PM – 6:00 PM">
+      <span class="estado-dot"></span>
+      <span class="estado-header-main" id="estado-header-main">—</span>
+      <span class="estado-header-sub" id="estado-header-sub"></span>
+    </div>
+  </div>
 
       <nav class="nav" id="nav-principal" aria-label="Navegación principal">
         <ul>
@@ -112,12 +122,14 @@
           <h1 class="hero-title">¡El mejor pollo asado de la zona!</h1>
           <p class="hero-slogan">¡Ricos y Sabrosos!</p>
           <p class="hero-desc">Ya estamos listos para consentirte con el mejor sabor que te hace volver desde 2001.</p>
-          <div class="hero-actions">
+          <div class="hero-actions">          
             <a class="btn btn-wa" href="https://wa.me/528112735442"
                data-wa="Hola, quiero realizar un pedido en Pollos Tavo's. ¿Me pueden Ayudar?">
               <svg class="icon"><use href="#icon-wa"/></svg> Pedir por WhatsApp
             </a>
             <a class="btn btn-secondary" href="#menu">Ver menú</a>
+          </div>
+          <div>
           </div>
         </div>
         <div class="hero-media reveal">
@@ -338,7 +350,7 @@
     <div class="paq-grid">
       <article class="paq-card reveal">
         <div class="paq-media">
-          <img src="img/galeria1.jpg" loading="lazy" alt="Paquete familiar con pollo asado, carne, salchichas, tortillas y salsas">
+          <img src="img/pollotavos.png" loading="lazy" alt="Paquete familiar con pollo asado, carne, salchichas, tortillas y salsas">
           <span class="paq-sticker">¡Ricos y Sabrosos!</span>
         </div>
         <div class="paq-body">
@@ -351,7 +363,7 @@
         </div>
       </article>
 
-            <article class="paq-card reveal" style="--d:.24s">
+      <article class="paq-card reveal" style="--d:.24s">
         <div class="paq-media">
           <img src="img/galeria.jpg" loading="lazy" alt="Carne asada al carbón con pollo y salchichas para compartir">
           <span class="paq-sticker">¡Ricos y Sabrosos!</span>
@@ -368,7 +380,7 @@
 
       <article class="paq-card reveal" style="--d:.16s">
         <div class="paq-media">
-          <img src="img/galeria1.jpg" loading="lazy" alt="Pollo asado con salchichas al carbón, tortillas y salsas">
+          <img src="img/pollotavos.png" loading="lazy" alt="Pollo asado con salchichas al carbón, tortillas y salsas">
           <span class="paq-sticker">¡Ricos y Sabrosos!</span>
         </div>
         <div class="paq-body">
@@ -381,7 +393,7 @@
         </div>
       </article>
 
-    <article class="paq-card reveal" style="--d:.08s">
+      <article class="paq-card reveal" style="--d:.08s">
         <div class="paq-media">
           <img src="img/galeria1.jpg" loading="lazy" alt="Medio pollo asado dorado con cebolla asada, chiles y limones">
           <span class="paq-sticker">¡Ricos y Sabrosos!</span>
@@ -395,7 +407,7 @@
              data-pregunta="¿Me pueden confirmar mi pedido?">Pedir este paquete</a>
         </div>
       </article>
-      
+
     </div>
   </div>
 </section>
@@ -582,9 +594,16 @@
           </article>
           <article class="contacto-card reveal" style="--d:.08s">
             <div class="contacto-icon hora">🕛</div>
-            <h3>Horario</h3>
-            <p class="contacto-dato">Lunes a Domingo<br>12:00 PM – 6:00 PM</p>
-            <p class="contacto-dato">Hacienda la palma 101A Col. Rincon de la Hacienda, Guadalupe, Mexico</p>
+              <h3>Horario</h3>
+              <p class="contacto-dato">Lunes a Domingo<br>12:00 PM – 6:00 PM</p>
+                <!-- Indicador dinámico de estado -->
+                <div class="estado-badge" id="estado-negocio" aria-live="polite">
+                <img src="img/mascota.jpg" alt="Mascota Pollos Tavo's" class="estado-mascota">
+                <div class="'estado-info">
+                  <span class="estado-dot"></span>
+                  <span class="estado-texto" id="estado-texto">Verificando horario...</span>
+                </div>
+            </div>
           </article>
           <article class="contacto-card reveal" style="--d:.16s">
             <div class="contacto-icon pago">💳</div>
@@ -643,6 +662,7 @@
           <li><a href="#paquetes">Paquetes</a></li>
           <li><a href="#menu">Menú</a></li>
           <li><a href="#complementos">Complementos</a></li>
+          <li><a href="#tavos">Tavo's</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
