@@ -52,6 +52,52 @@ function actualizarPedidosWA() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- Estado del negocio: ABIERTO / CERRADO (header + contacto) ----------
+     Horario: Lunes a Domingo, 12:00 PM - 6:00 PM
+     Zona horaria de Monterrey para que sea preciso en cualquier lugar. */
+  const actualizarEstado = () => {
+    // Tarjeta de contacto (con mascota)
+    const badge = document.getElementById('estado-negocio');
+    const texto = document.getElementById('estado-texto');
+    // Header (compacto, sin mascota)
+    const hBadge = document.getElementById('estado-header');
+    const hMain  = document.getElementById('estado-header-main');
+    const hSub   = document.getElementById('estado-header-sub');
+
+    // Hora actual en zona horaria de Monterrey (CST/CDT)
+    const ahora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Monterrey' }));
+    const minutos = ahora.getHours() * 60 + ahora.getMinutes();
+    const abierto = minutos >= 12 * 60 && minutos < 18 * 60;
+
+    /* --- Tarjeta de contacto: mensaje completo con cuenta regresiva --- */
+    if (badge && texto) {
+      badge.classList.remove('abierto', 'cerrado');
+      badge.classList.add(abierto ? 'abierto' : 'cerrado');
+
+      if (abierto) {
+        const minFaltan = 18 * 60 - minutos;
+        texto.textContent = `¡Estamos ABIERTOS! 🎉 (cerramos en ${Math.floor(minFaltan / 60)}h ${minFaltan % 60}m)`;
+      } else {
+        const minFaltan = minutos < 12 * 60
+          ? 12 * 60 - minutos                       // aún no abre hoy
+          : (24 * 60 - minutos) + 12 * 60;          // ya cerró, abre mañana
+        texto.textContent = `Estamos CERRADOS 😴 (abrimos en ${Math.floor(minFaltan / 60)}h ${minFaltan % 60}m)`;
+      }
+    }
+
+    /* --- Header: versión corta junto al logo --- */
+    if (hBadge && hMain && hSub) {
+      hBadge.classList.toggle('abierto', abierto);
+      hBadge.classList.toggle('cerrado', !abierto);
+      hMain.textContent = abierto ? 'Abierto' : 'Cerrado';
+      hSub.textContent  = abierto ? '· cierra 6:00 PM' : '· abre 12:00 PM';
+    }
+  };
+
+  actualizarEstado();
+  // Se revisa cada minuto para cambiar de estado automáticamente
+  setInterval(actualizarEstado, 60 * 1000);
+
   /* ---------- Selector de modalidad de entrega (sincronizado) ---------- */
   document.querySelectorAll('.entrega-btn').forEach(btn => {
     btn.addEventListener('click', () => {
