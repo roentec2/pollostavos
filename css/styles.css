@@ -281,7 +281,7 @@ ul { list-style: none; }
   background: var(--carbon); border: 1px dashed rgba(255, 210, 63, .45);
   border-radius: 14px; padding: 15px 22px; color: #ffe9c9; font-weight: 700;
 }
-.menu-legal { text-align: center; color: #000000; font-size: .8rem; margin-top: 14px; }
+.menu-legal { text-align: center; color: #ffffff; font-size: .8rem; margin-top: 14px; }
 
 /* ---------- Complementos ---------- */
 .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
@@ -514,4 +514,114 @@ ul { list-style: none; }
   .menu-name { width: 100%; }
   .menu-dots { display: none; }
   .menu-price { margin-right: auto; }
+}
+
+/* ---------- Indicador de estado: ABIERTO / CERRADO ---------- */
+.estado-badge {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 18px; padding: 10px 14px;
+  background: var(--carbon-2);
+  border: 1px solid rgba(255, 210, 63, .25);
+  border-radius: 14px;
+  transition: border-color .3s, background .3s;
+}
+
+.estado-mascota {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--amarillo); flex: none;
+  filter: grayscale(100%) opacity(.6);
+  transition: filter .4s, transform .4s;
+}
+
+.estado-info {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 800; font-size: .9rem; letter-spacing: .3px;
+}
+
+.estado-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #8d7c6c; flex: none;
+  transition: background .3s, box-shadow .3s;
+}
+
+/* Estado ABIERTO */
+.estado-badge.abierto { border-color: rgba(37, 211, 102, .45); background: rgba(37, 211, 102, .08); }
+.estado-badge.abierto .estado-mascota { filter: none; animation: saludar 3s ease-in-out infinite; }
+.estado-badge.abierto .estado-dot {
+  background: var(--wa);
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, .7);
+  animation: pulso-dot 1.8s infinite;
+}
+.estado-badge.abierto .estado-texto { color: #7be4a4; }
+
+/* Estado CERRADO */
+.estado-badge.cerrado { border-color: rgba(217, 43, 32, .45); background: rgba(217, 43, 32, .1); }
+.estado-badge.cerrado .estado-mascota { filter: grayscale(100%) opacity(.7); }
+.estado-badge.cerrado .estado-dot { background: var(--rojo); }
+.estado-badge.cerrado .estado-texto { color: #ff9a90; }
+
+@keyframes saludar {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg) scale(1.05); }
+  75% { transform: rotate(6deg) scale(1.05); }
+}
+
+@keyframes pulso-dot {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .7); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@media (max-width: 560px) {
+  .estado-mascota { width: 40px; height: 40px; }
+  .estado-info { font-size: .82rem; }
+}
+
+/* Respeta preferencia de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .estado-badge.abierto .estado-mascota { animation: none; }
+  .estado-badge.abierto .estado-dot { animation: none; box-shadow: 0 0 0 3px rgba(37, 211, 102, .5); }
+}
+
+/* ---------- Indicador de estado en el HEADER (compacto) ---------- */
+.header-brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+
+.estado-header {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: .45rem .85rem; border-radius: 999px; white-space: nowrap;
+  background: var(--carbon-2);
+  border: 1px solid rgba(255, 210, 63, .25);
+  font-family: var(--font-body); font-weight: 800; font-size: .72rem;
+  letter-spacing: .5px; text-transform: uppercase;
+  transition: background .3s, border-color .3s;
+}
+.estado-header .estado-dot { width: 8px; height: 8px; }
+
+.estado-header-main { color: #cbb69f; }
+.estado-header-sub  { color: #9d8d7d; font-weight: 700; text-transform: none; letter-spacing: .2px; }
+
+/* Estado ABIERTO en header */
+.estado-header.abierto { border-color: rgba(37, 211, 102, .45); background: rgba(37, 211, 102, .1); }
+.estado-header.abierto .estado-header-main { color: #7be4a4; }
+.estado-header.abierto .estado-dot {
+  background: var(--wa);
+  animation: pulso-dot 1.8s infinite;
+}
+
+/* Estado CERRADO en header */
+.estado-header.cerrado { border-color: rgba(217, 43, 32, .45); background: rgba(217, 43, 32, .12); }
+.estado-header.cerrado .estado-header-main { color: #ff9a90; }
+.estado-header.cerrado .estado-dot { background: var(--rojo); }
+
+/* Responsive: en pantallas pequeñas se muestra solo "Abierto / Cerrado" */
+@media (max-width: 760px) {
+  .estado-header-sub { display: none; }
+}
+@media (max-width: 420px) {
+  .header-brand { gap: 8px; }
+  .estado-header { padding: .35rem .6rem; font-size: .62rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .estado-header.abierto .estado-dot { animation: none; box-shadow: 0 0 0 3px rgba(37, 211, 102, .5); }
 }
