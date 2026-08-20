@@ -9,8 +9,10 @@ const CONFIG = {
   direccion: 'Hacienda la Palma #101 Col. Rincon de la Hacienda',
   instagram: 'https://www.instagram.com/pollostavosoficial?utm_source=qr',
   facebook: 'https://www.facebook.com/share/1BkhZoGNY6/?mibextid=wwXIfr',
+  didiFood: '',   // DIDI_FOOD_URL — Ej. 'https://www.didi-food.com/es-MX/store/...'
+  rappi: '',       // RAPPI_URL — Ej. 'https://www.rappi.com.mx/restaurantes/...'
   horaApertura: 11,  // 11:00 AM
-  horaCierre: 19     // 19:00 PM
+  horaCierre: 19     // 19:00 
 };
 
 const MODALIDADES = {
@@ -34,9 +36,9 @@ const COMPLEMENTOS = [
   { nombre: 'Totopos', precio: 25 },
   { nombre: '1 chile preparado', precio: 25 },
   { nombre: '3 chiles preparados', precio: 60 },
-  { nombre: 'Cebolla', precio: 10 },
-  { nombre: 'Chile toreado', precio: 5 },
-  { nombre: 'Coca-Cola 1.75 L', precio: 35 }
+  { nombre: '1 Cebolla', precio: 10 },
+  { nombre: '1 Chile toreado', precio: 5 },
+  { nombre: '1 Coca-Cola 1.75 L', precio: 35 }
 ];
 
 let modalidad = 'domicilio';
@@ -532,18 +534,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
     aplicarBloqueoCerrado();
     renderizarCarrito();
+    
+    document.querySelectorAll('.btn-delivery, .btn-delivery-sm').forEach(el => {
+    el.classList.toggle('bloqueado-cerrado', !negocioAbierto);
+  });
+    
   };
   actualizarEstadoNegocio();
   setInterval(actualizarEstadoNegocio, 60 * 1000);
 
-  /* ----- Redes sociales ----- */
+  /* Se reemplazo esta seccion----- Redes sociales ----- 
   [['ig-link', CONFIG.instagram, 'Instagram'], ['fb-link', CONFIG.facebook, 'Facebook']].forEach(([id, url, nombre]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (url) { el.href = url; el.target = '_blank'; el.rel = 'noopener'; }
+    else el.addEventListener('click', e => { e.preventDefault(); toast(`Muy pronto nuestra página de ${nombre} 📲`); });
+  });*/
+  
+    /* ----- Redes sociales y plataformas de entrega ----- */
+  const enlaces = [
+    ['ig-link', CONFIG.instagram, 'Instagram'],
+    ['fb-link', CONFIG.facebook, 'Facebook']
+  ];
+  enlaces.forEach(([id, url, nombre]) => {
     const el = document.getElementById(id);
     if (!el) return;
     if (url) { el.href = url; el.target = '_blank'; el.rel = 'noopener'; }
     else el.addEventListener('click', e => { e.preventDefault(); toast(`Muy pronto nuestra página de ${nombre} 📲`); });
   });
 
+  /* Didi Food y Rappi — todos los botones con su ID */
+  const didiBtns = ['link-didi', 'hero-didi', 'footer-didi'];
+  const rappiBtns = ['link-rappi', 'hero-rappi', 'footer-rappi'];
+
+  didiBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (CONFIG.didiFood) {
+      el.href = CONFIG.didiFood;
+    } else {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        toast('🛵 Muy pronto estaremos en Didi Food. ¡Pide por WhatsApp!');
+      });
+    }
+  });
+
+  rappiBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (CONFIG.rappi) {
+      el.href = CONFIG.rappi;
+    } else {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        toast('🛵 Muy pronto estaremos en Rappi. ¡Pide por WhatsApp!');
+      });
+    }
+  });
+  
+    /* ---------- Plataformas de entrega (Didi Food / Rappi) ---------- */
+  [['didi-link', CONFIG.didiFood, 'Didi Food'], ['rappi-link', CONFIG.rappi, 'Rappi']].forEach(([id, url, nombre]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (url) { el.href = url; el.target = '_blank'; el.rel = 'noopener'; }
+    else el.addEventListener('click', e => {
+      e.preventDefault();
+      toast(`Muy pronto podrás pedir por ${nombre} 🛵`);
+    });
+  });
+  
   /* ----- Dirección ----- */
   const dirEl = document.getElementById('direccion-text');
   if (CONFIG.direccion && dirEl) dirEl.textContent = CONFIG.direccion;
