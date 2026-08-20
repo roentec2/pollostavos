@@ -289,17 +289,99 @@ ul { list-style: none; }
 .comp-card h3 { font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase; font-size: 1.1rem; margin-bottom: 10px; }
 .comp-name { flex: 1; }
 
-/* ---------- Todos incluyen ---------- */
+//* ---------- Todos incluyen (con imágenes) ---------- */
 .incluyen { background: linear-gradient(180deg, #2a130c, #1c0f0b); border-block: 1px solid rgba(255, 210, 63, .12); }
-.incluyen-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 44px; }
-.incluyen-item {
-  background: var(--carbon-2); border: 1px solid rgba(255, 210, 63, .2); border-radius: 18px;
-  padding: 24px 30px; text-align: center; font-weight: 800; color: #f3e8da;
-  min-width: 150px; transition: transform .3s, border-color .3s;
+
+.incluyen-cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px; margin-top: 44px;
 }
-.incluyen-item span { display: block; font-size: 2.3rem; margin-bottom: 10px; }
-.incluyen-item:hover { transform: translateY(-6px); border-color: var(--amarillo); }
+
+.inc-card {
+  background: var(--carbon-2); border: 1px solid rgba(255, 210, 63, .18);
+  border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+.inc-card:hover { transform: translateY(-8px); border-color: var(--amarillo); box-shadow: 0 20px 40px rgba(0, 0, 0, .45); }
+
+.inc-media { aspect-ratio: 4 / 3; overflow: hidden; }
+.inc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.inc-card:hover .inc-media img { transform: scale(1.08); }
+
+.inc-body { padding: 18px; text-align: center; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.inc-emoji { font-size: 2rem; }
+.inc-body h3 {
+  font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase;
+  font-size: .95rem; letter-spacing: .5px;
+}
+.inc-body p { font-size: .88rem; color: var(--texto); font-weight: 600; }
+
+.inc-card-accent {
+  background: linear-gradient(150deg, rgba(255, 210, 63, .1), rgba(255, 210, 63, .03));
+  border-style: dashed; display: flex; align-items: center; justify-content: center;
+}
+.inc-card-accent .inc-body { padding: 28px; }
+.inc-card-accent .inc-emoji { font-size: 2.6rem; }
+
 .incluyen-text { margin: 30px auto 0; max-width: 620px; text-align: center; color: var(--texto); font-weight: 600; }
+
+/* ---------- Plataformas de entrega ---------- */
+.delivery-block {
+  margin-top: 44px; text-align: center; padding: 30px 24px;
+  background: var(--carbon-2); border: 1px solid rgba(255, 210, 63, .22);
+  border-radius: 22px;
+}
+.delivery-titulo { font-family: var(--font-title); color: var(--amarillo); text-transform: uppercase; font-size: 1.15rem; }
+.delivery-desc { color: var(--texto); font-weight: 600; margin: 8px 0 20px; }
+.delivery-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+.btn-delivery {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font: 800 .92rem var(--font-body); text-transform: uppercase; letter-spacing: .5px;
+  padding: .85rem 1.5rem; border-radius: 14px; text-decoration: none;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn-delivery:active { transform: scale(.96); }
+.btn-delivery:hover { transform: translateY(-3px); }
+
+.btn-didi { background: #fa4616; color: #fff; box-shadow: 0 8px 20px rgba(250, 70, 22, .3); }
+.btn-didi:hover { box-shadow: 0 14px 28px rgba(250, 70, 22, .45); background: #ff5a2e; }
+
+.btn-rappi { background: #ff441f; color: #fff; box-shadow: 0 8px 20px rgba(255, 68, 31, .3); }
+.btn-rappi:hover { box-shadow: 0 14px 28px rgba(255, 68, 31, .45); background: #ff5c3a; }
+
+/* Versión pequeña para el hero */
+.hero-apps { display: flex; gap: 10px; flex-wrap: wrap; width: 100%; }
+.btn-delivery-sm {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font: 800 .78rem var(--font-body); text-transform: uppercase; letter-spacing: .5px;
+  padding: .6rem 1rem; border-radius: 12px; text-decoration: none; color: #fff;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn-delivery-sm:active { transform: scale(.96); }
+.btn-delivery-sm:hover { transform: translateY(-2px); }
+.btn-delivery-sm.btn-didi { background: rgba(250, 70, 22, .85); }
+.btn-delivery-sm.btn-didi:hover { background: #fa4616; }
+.btn-delivery-sm.btn-rappi { background: rgba(255, 68, 31, .85); }
+.btn-delivery-sm.btn-rappi:hover { background: #ff441f; }
+
+/* Delivery bloqueado cuando está cerrado */
+.btn-delivery.bloqueado-cerrado,
+.btn-delivery-sm.bloqueado-cerrado { opacity: .45; filter: grayscale(.5); cursor: not-allowed; }
+.btn-delivery.bloqueado-cerrado:hover,
+.btn-delivery-sm.bloqueado-cerrado:hover { transform: none !important; box-shadow: none !important; }
+
+/* Social icons para Didi/Rappi en el footer */
+.social a.didi-social:hover { background: #fa4616; }
+.social a.rappi-social:hover { background: #ff441f; }
+
+@media (max-width: 560px) {
+  .incluyen-cards { grid-template-columns: 1fr 1fr; }
+  .delivery-btns { flex-direction: column; align-items: center; }
+  .btn-delivery { width: 100%; justify-content: center; }
+  .hero-apps { width: 100%; }
+  .btn-delivery-sm { flex: 1; justify-content: center; }
+}
 
 /* ---------- Por qué elegirnos ---------- */
 .porque-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; margin-top: 50px; }
@@ -814,4 +896,58 @@ body.negocio-cerrado .wa-float { animation: none; }
 .form-grid .full { grid-column: 1 / -1; }
 @media (max-width: 480px) {
   .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Galería de fotos reales (sección incluyen) ---------- */
+.incluyen-galeria {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin-top: 44px;
+}
+.galeria-item {
+  position: relative; overflow: hidden; margin: 0;
+  aspect-ratio: 3 / 4; border-radius: 18px;
+  border: 1px solid rgba(255, 210, 63, .22);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+}
+.galeria-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s ease;
+}
+.galeria-item:hover img { transform: scale(1.07); }
+.galeria-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 30px 10px 12px; text-align: center;
+  background: linear-gradient(transparent, rgba(10, 6, 5, .88));
+  color: #ffe9c9; font-weight: 800; font-size: .85rem;
+}
+
+/* ---------- Plataformas de entrega (Didi Food / Rappi) ---------- */
+.plataformas { margin-top: 48px; text-align: center; }
+.plataformas-titulo {
+  font-family: var(--font-title); color: var(--amarillo);
+  text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; margin-bottom: 16px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, .4);
+}
+.plataformas-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.plataforma-btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .95rem 1.7rem; border-radius: 14px; text-decoration: none;
+  font: 800 .95rem var(--font-body); text-transform: uppercase; letter-spacing: .5px;
+  color: #fff; box-shadow: 0 10px 24px rgba(0, 0, 0, .4);
+  transition: transform .2s, filter .2s, box-shadow .2s;
+}
+.plataforma-btn:hover { transform: translateY(-3px); filter: brightness(1.12); box-shadow: 0 14px 30px rgba(0, 0, 0, .5); }
+.plataforma-btn:active { transform: scale(.96); }
+.plataforma-btn.didi  { background: linear-gradient(120deg, #ff5a1f, #ff8a00); }
+.plataforma-btn.rappi { background: linear-gradient(120deg, #ff441f, #ff6b3d); }
+
+/* ---------- Responsive galería ---------- */
+@media (max-width: 900px) {
+  .incluyen-galeria { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .incluyen-galeria { gap: 10px; }
+  .galeria-item { aspect-ratio: 1 / 1; border-radius: 14px; }
+  .galeria-item figcaption { font-size: .75rem; padding-top: 22px; }
+  .plataforma-btn { width: 100%; justify-content: center; }
 }
