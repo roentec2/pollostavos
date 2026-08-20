@@ -765,7 +765,7 @@
       <section class="tab-panel active" id="panel-pedido" role="tabpanel">
         <p class="cart-aviso" id="cart-aviso" hidden>😴 Estamos cerrados ahora mismo. Puedes armar tu pedido y lo confirmaremos al abrir (12:00 PM).</p>
         <ul class="cart-list" id="cart-list"></ul>
-        <p class="cart-empty" id="cart-empty">Tu pedido está vacío. Agrega promociones, paquetes o complementos. 🍗</p>
+        <p class="cart-empty" id="cart-empty">Tu pedido está vacío. Agrega promociones, paquetes o complementos. <strong>"Si Hay Lluvia el Costo $ de Envio puede Variar"</strong></p>
         <button type="button" class="cart-vaciar" id="cart-vaciar">🗑️ Vaciar pedido</button>
       </section>
 
@@ -787,20 +787,45 @@
         </div>
 
         <div class="cart-form">
-          <div class="form-field">
-            <label for="cliente-nombre">👤 Nombre de quien recibe</label>
-            <input type="text" id="cliente-nombre" placeholder="Ej. Juan Pérez" maxlength="80" autocomplete="name">
-          </div>
-          <div class="form-field" id="campo-direccion">
-            <label for="cliente-direccion">📍 Dirección de envío</label>
-            <textarea id="cliente-direccion" rows="2" placeholder="Calle, número, colonia, referencias..." maxlength="240"></textarea>
-            <small class="form-hint">🛵 Costo de envío: <strong>$30 MXN</strong></small>
-          </div>
-          <div class="form-field" id="campo-notas">
-            <label for="cliente-notas">💬 Notas adicionales (opcional)</label>
-            <textarea id="cliente-notas" rows="2" placeholder="Ej. Timbre no funciona, casa azul..." maxlength="240"></textarea>
-          </div>
-        </div>
+  <div class="form-field">
+    <label for="cliente-nombre">👤 Nombre de quien recibe</label>
+    <input type="text" id="cliente-nombre" placeholder="Ej. Juan Pérez" maxlength="80" autocomplete="name">
+  </div>
+
+  <div class="form-field">
+    <label for="cliente-telefono">📞 Teléfono de contacto</label>
+    <input type="tel" id="cliente-telefono" inputmode="numeric" placeholder="Ej. 81 1234 5678" maxlength="15" autocomplete="tel">
+    <small class="form-hint">Obligatorio para confirmar tu pedido</small>
+  </div>
+
+  <!-- Campos exclusivos para entrega a domicilio -->
+  <div class="form-domicilio" id="grupo-domicilio">
+    <p class="form-subtitulo">📍 Dirección de envío <span class="form-hint">🛵 Costo de envío: <strong>$30 MXN</strong></span></p>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="cliente-colonia">🏘️ Colonia</label>
+        <input type="text" id="cliente-colonia" placeholder="Ej. Centro" maxlength="60">
+      </div>
+      <div class="form-field">
+        <label for="cliente-calle">🛣️ Calle</label>
+        <input type="text" id="cliente-calle" placeholder="Ej. Constitución" maxlength="60">
+      </div>
+      <div class="form-field">
+        <label for="cliente-numero">🔢 Número</label>
+        <input type="text" id="cliente-numero" placeholder="Ej. 456" maxlength="20">
+      </div>
+      <div class="form-field">
+        <label for="cliente-entrecalles">↔️ Entre calles</label>
+        <input type="text" id="cliente-entrecalles" placeholder="Ej. Juárez y Morelos" maxlength="80">
+      </div>
+      <div class="form-field full">
+        <label for="cliente-referencia">📝 Referencia (opcional)</label>
+        <textarea id="cliente-referencia" rows="2" placeholder="Ej. Casa azul, portón negro, timbre no funciona..." maxlength="240"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
 
         <div class="datos-block">
           <h4>Método de pago</h4>
