@@ -83,7 +83,13 @@ function obtenerHorario() {
   const apertura = CONFIG.horaApertura * 60;
   const cierre = CONFIG.horaCierre * 60;
   const abierto = minutos >= apertura && minutos < cierre;
-  const faltan = minutos < apertura ? apertura - minutos : (1440 - minutos) + apertura;
+
+  // Si está ABIERTO: tiempo restante para el CIERRE de hoy.
+  // Si está CERRADO: tiempo restante para la APERTURA (de hoy o de mañana).
+  const faltan = abierto
+    ? cierre - minutos
+    : (minutos < apertura ? apertura - minutos : (1440 - minutos) + apertura);
+
   return { abierto, faltan };
 }
 
